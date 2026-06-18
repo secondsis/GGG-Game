@@ -63,4 +63,5 @@ func _physics_process(delta: float) -> void:
 	self.move_and_slide()
 
 func _move(dir: Vector2):
-	self.global_position += dir * 
+	self.global_position += dir * GameInfo.TILE_SIZE
+	

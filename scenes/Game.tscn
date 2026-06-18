@@ -1,0 +1,98 @@
+[gd_scene format=4 uid="uid://b6lomfrvhuhli"]
+
+[ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="1_ibkli"]
+[ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="2_78awf"]
+[ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="3_s0nni"]
+[ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="4_aug50"]
+[ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scenes/camera_zoom.gd" id="5_s0nni"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbsmt"]
+texture = ExtResource("1_ibkli")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kiw3p"]
+texture = ExtResource("2_78awf")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_400sg"]
+texture = ExtResource("3_s0nni")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4kob"]
+texture = ExtResource("4_aug50")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cpr0p"]
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_qbsmt")
+sources/1 = SubResource("TileSetAtlasSource_kiw3p")
+sources/2 = SubResource("TileSetAtlasSource_400sg")
+sources/3 = SubResource("TileSetAtlasSource_g4kob")
+
+[node name="Main" type="Node2D" unique_id=170183922]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=990872291]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=735265825]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=389018231]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=878056914]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=42786515]
+tile_map_data = PackedByteArray("AAD4/wkAAQAAAAAAAAD5/wkAAQAAAAAAAAD6/wkAAQAAAAAAAAD7/wkAAQAAAAAAAAD8/wkAAQAAAAAAAAD9/wkAAQAAAAAAAAD+/wkAAQAAAAAAAAD//wkAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAJAPn/AQAAAAAAAAAJAPr/AQAAAAAAAAAJAPv/AQAAAAAAAAAJAPz/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAP7/AQAAAAAAAAAJAP//AQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAJAAgAAQAAAAAAAAAJAAkAAQAAAAAAAAD2//b/AQAAAAAAAAD2//f/AQAAAAAAAAD2//j/AQAAAAAAAAD2//n/AQAAAAAAAAD2//r/AQAAAAAAAAD2//v/AQAAAAAAAAD2//z/AQAAAAAAAAD2//3/AQAAAAAAAAD2//7/AQAAAAAAAAD2////AQAAAAAAAAD2/wAAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wMAAQAAAAAAAAD2/wQAAQAAAAAAAAD2/wUAAQAAAAAAAAD2/wYAAQAAAAAAAAD2/wcAAQAAAAAAAAD2/wgAAQAAAAAAAAD2/wkAAQAAAAAAAAD3//b/AQAAAAAAAAD3/wkAAQAAAAAAAAD4//b/AQAAAAAAAAD5//b/AQAAAAAAAAD6//b/AQAAAAAAAAD7//b/AQAAAAAAAAD8//b/AQAAAAAAAAD9//b/AQAAAAAAAAD+//b/AQAAAAAAAAD///b/AQAAAAAAAAAAAPb/AQAAAAAAAAABAPb/AQAAAAAAAAACAPb/AQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAAGAPb/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAJAPj/AQAAAAAAAAD///f/AQAEAAAAAAD///j/AQAAAAEAAAD///n/AQAAAAEAAAD///r/AQAAAAEAAAD///v/AQAAAAEAAAD///z/AQAAAAEAAAD///3/AQAAAAEAAAD///7/AQAAAAEAAAD/////AQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAEAAAD//wQAAQAAAAEAAAD//wUAAQAAAAEAAAD//wYAAQAAAAEAAAD//wcAAQAAAAEAAAD//wgAAQABAAEAAAD+//f/AQADAAAAAAD9//f/AQACAAAAAAD8//f/AQACAAAAAAD7//f/AQACAAAAAAD6//f/AQACAAAAAAD5//f/AQACAAAAAAD4//f/AQACAAAAAAD3//f/AQABAAAAAAAAAPf/AQABAAAAAAABAPf/AQACAAAAAAACAPf/AQACAAAAAAADAPf/AQACAAAAAAAEAPf/AQACAAAAAAAFAPf/AQACAAAAAAAGAPf/AQACAAAAAAAHAPf/AQACAAAAAAAIAPf/AQADAAAAAAA=")
+tile_set = SubResource("TileSet_cpr0p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1630962023]
+zoom = Vector2(2, 2)
+script = ExtResource("5_s0nni")

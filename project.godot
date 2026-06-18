@@ -15,6 +15,10 @@ run/main_scene="uid://b6lomfrvhuhli"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+GameInfo="*uid://dd7y62ptfgbs0"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -30,5 +34,6 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0.14901961, 0.050980393, 0.20392157, 1)

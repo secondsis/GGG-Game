@@ -1,7 +1,7 @@
 extends Camera2D
 
 var default_world_width : int = 20 * GameInfo.TILE_SIZE
-var default_world_height : int = 20 * GameInfo.TILE_SIZE
+var default_world_height : int = 10 * GameInfo.TILE_SIZE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

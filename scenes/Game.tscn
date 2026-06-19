@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="5_s0nni"]
 [ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="8_400sg"]
 [ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="8_g4kob"]
+[ext_resource type="Script" uid="uid://cmlqw1oc8622m" path="res://scripts/void_player.gd" id="8_qy1jj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbsmt"]
 texture = ExtResource("1_ibkli")
@@ -101,29 +102,357 @@ sources/1 = SubResource("TileSetAtlasSource_kiw3p")
 sources/2 = SubResource("TileSetAtlasSource_400sg")
 sources/3 = SubResource("TileSetAtlasSource_g4kob")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ua8r"]
+texture = ExtResource("1_ibkli")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7sob"]
+texture = ExtResource("2_78awf")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = true
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/custom_data_0 = true
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = true
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/custom_data_0 = true
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5y3l"]
+texture = ExtResource("3_s0nni")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjgi4"]
+texture = ExtResource("4_aug50")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kyk2p"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+custom_data_layer_0/name = "Voidable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_7ua8r")
+sources/1 = SubResource("TileSetAtlasSource_r7sob")
+sources/2 = SubResource("TileSetAtlasSource_y5y3l")
+sources/3 = SubResource("TileSetAtlasSource_vjgi4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy1jj"]
+texture = ExtResource("1_ibkli")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xj3m"]
+texture = ExtResource("2_78awf")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = true
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/custom_data_0 = true
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = true
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/custom_data_0 = true
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcffj"]
+texture = ExtResource("3_s0nni")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rd6h"]
+texture = ExtResource("4_aug50")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ua8r"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+terrain_set_0/mode = 0
+custom_data_layer_0/name = "Voidable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_qy1jj")
+sources/1 = SubResource("TileSetAtlasSource_3xj3m")
+sources/2 = SubResource("TileSetAtlasSource_mcffj")
+sources/3 = SubResource("TileSetAtlasSource_2rd6h")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4kob"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy1jj"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xj3m"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcffj"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rd6h"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ua8r"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7sob"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5y3l"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjgi4"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyk2p"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45i86"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv1m6"]
+atlas = ExtResource("3_s0nni")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8wo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4kob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy1jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xj3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcffj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rd6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ua8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7sob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5y3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyk2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45i86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv1m6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_attvq"]
+size = Vector2(8, 8)
+
 [node name="Main" type="Node2D" unique_id=170183922]
 
-[node name="TileMap_Wall" type="TileMapLayer" parent="." unique_id=42786515]
+[node name="TileMap" type="Node2D" parent="." unique_id=834992288]
+
+[node name="TileMap_Wall" type="TileMapLayer" parent="TileMap" unique_id=42786515]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAD4/wkAAQAAAAAAAAD5/wkAAQAAAAAAAAD6/wkAAQAAAAAAAAD7/wkAAQAAAAAAAAD8/wkAAQAAAAAAAAD9/wkAAQAAAAAAAAD+/wkAAQAAAAAAAAD//wkAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAJAPn/AQAAAAAAAAAJAPr/AQAAAAAAAAAJAPv/AQAAAAAAAAAJAPz/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAP7/AQAAAAAAAAAJAP//AQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAJAAgAAQAAAAAAAAAJAAkAAQAAAAAAAAD2//b/AQAAAAAAAAD2//f/AQAAAAAAAAD2//j/AQAAAAAAAAD2//n/AQAAAAAAAAD2//r/AQAAAAAAAAD2//v/AQAAAAAAAAD2//z/AQAAAAAAAAD2//3/AQAAAAAAAAD2//7/AQAAAAAAAAD2////AQAAAAAAAAD2/wAAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wMAAQAAAAAAAAD2/wQAAQAAAAAAAAD2/wUAAQAAAAAAAAD2/wYAAQAAAAAAAAD2/wcAAQAAAAAAAAD2/wgAAQAAAAAAAAD2/wkAAQAAAAAAAAD3//b/AQAAAAAAAAD3/wkAAQAAAAAAAAD4//b/AQAAAAAAAAD5//b/AQAAAAAAAAD6//b/AQAAAAAAAAD7//b/AQAAAAAAAAD8//b/AQAAAAAAAAD9//b/AQAAAAAAAAD+//b/AQAAAAAAAAD///b/AQAAAAAAAAAAAPb/AQAAAAAAAAABAPb/AQAAAAAAAAACAPb/AQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAAGAPb/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAJAPj/AQAAAAAAAAD///f/AQAEAAAAAAD///j/AQAAAAEAAAD///n/AQAAAAEAAAD///r/AQAAAAEAAAD///v/AQAAAAEAAAD///z/AQAAAAEAAAD///3/AQAAAAEAAAD///7/AQAAAAEAAAD/////AQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAEAAAD//wQAAQAAAAEAAAD//wUAAQAAAAEAAAD//wYAAQAAAAEAAAD//wcAAQAAAAEAAAD//wgAAQABAAEAAAD+//f/AQADAAAAAAD9//f/AQACAAAAAAD8//f/AQACAAAAAAD7//f/AQACAAAAAAD6//f/AQACAAAAAAD5//f/AQACAAAAAAD4//f/AQACAAAAAAD3//f/AQABAAAAAAAAAPf/AQABAAAAAAABAPf/AQACAAAAAAACAPf/AQACAAAAAAADAPf/AQACAAAAAAAEAPf/AQACAAAAAAAFAPf/AQACAAAAAAAGAPf/AQACAAAAAAAHAPf/AQACAAAAAAAIAPf/AQADAAAAAAA=")
+tile_map_data = PackedByteArray("AAD///f/AQAEAAAAAAD///j/AQAAAAEAAAD///n/AQAAAAEAAAD///r/AQAAAAEAAAD///v/AQAAAAEAAAD///z/AQAAAAEAAAD///3/AQAAAAEAAAD+//f/AQADAAAAAAD9//f/AQACAAAAAAD8//f/AQACAAAAAAD7//f/AQACAAAAAAD6//f/AQACAAAAAAD5//f/AQACAAAAAAD4//f/AQACAAAAAAD3//f/AQABAAAAAAAAAPf/AQABAAAAAAABAPf/AQACAAAAAAACAPf/AQACAAAAAAADAPf/AQACAAAAAAAEAPf/AQACAAAAAAAFAPf/AQACAAAAAAAGAPf/AQACAAAAAAAHAPf/AQACAAAAAAAIAPf/AQADAAAAAAD///7/AQABAAEAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
+[node name="TileMap_InteractiveNoCollide" type="TileMapLayer" parent="TileMap" unique_id=2060783861]
+position = Vector2(-8, -8)
+tile_set = SubResource("TileSet_kyk2p")
+
+[node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
+position = Vector2(-8, -8)
+tile_map_data = PackedByteArray("AAD2//b/AQAAAAAAAAD2//f/AQAAAAAAAAD2//j/AQAAAAAAAAD2//n/AQAAAAAAAAD2//r/AQAAAAAAAAD2//v/AQAAAAAAAAD2//z/AQAAAAAAAAD2//3/AQAAAAAAAAD2//7/AQAAAAAAAAD2////AQAAAAAAAAD3////AQAAAAAAAAD4////AQAAAAAAAAD5////AQAAAAAAAAD6////AQAAAAAAAAD7////AQAAAAAAAAD8////AQAAAAAAAAD9////AQAAAAAAAAD+////AQAAAAAAAAD/////AQAAAAAAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAAJAPf/AQAAAAAAAAAJAPj/AQAAAAAAAAAJAPn/AQAAAAAAAAAJAPr/AQAAAAAAAAAJAPv/AQAAAAAAAAAJAPz/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAP7/AQAAAAAAAAAJAP//AQAAAAAAAAD3//b/AQAAAAAAAAD4//b/AQAAAAAAAAD5//b/AQAAAAAAAAD6//b/AQAAAAAAAAD7//b/AQAAAAAAAAD8//b/AQAAAAAAAAD9//b/AQAAAAAAAAD+//b/AQAAAAAAAAD///b/AQAAAAAAAAAAAPb/AQAAAAAAAAABAPb/AQAAAAAAAAACAPb/AQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAAGAPb/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7ua8r")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630962023]
+position = Vector2(-16, -80)
 zoom = Vector2(2, 2)
 script = ExtResource("5_s0nni")
 
 [node name="VoidPlayer" parent="." unique_id=925719812 instance=ExtResource("1_kiw3p")]
-position = Vector2(-112, 0)
+position = Vector2(-80, -80)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" parent="VoidPlayer" index="0" unique_id=149505355]
 sprite_frames = ExtResource("8_400sg")
 animation = &"idle_down"
 
+[node name="up" parent="VoidPlayer" index="3" unique_id=1010879642]
+collision_mask = 2
+
+[node name="down" parent="VoidPlayer" index="4" unique_id=972570611]
+collision_mask = 2
+
+[node name="left" parent="VoidPlayer" index="5" unique_id=780420478]
+collision_mask = 2
+
+[node name="right" parent="VoidPlayer" index="6" unique_id=2101515432]
+collision_mask = 2
+
+[node name="VoidScript" type="Node2D" parent="VoidPlayer" unique_id=1800358643]
+script = ExtResource("8_qy1jj")
+
 [node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("1_kiw3p")]
-position = Vector2(-144, 0)
+position = Vector2(-144, -96)
 
 [node name="GameScript" type="Node2D" parent="." unique_id=716269097]
 unique_name_in_owner = true
 script = ExtResource("8_g4kob")
+
+[node name="Carrot" type="Node2D" parent="." unique_id=1216452123]
+position = Vector2(112, -96)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrot" unique_id=1130577889]
+sprite_frames = SubResource("SpriteFrames_a8wo8")
+frame_progress = 0.5936405
+
+[node name="Area2D" type="Area2D" parent="Carrot" unique_id=1147011417]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carrot/Area2D" unique_id=1202539831]
+shape = SubResource("RectangleShape2D_attvq")
+
+[connection signal="after_player_move" from="VoidPlayer" to="VoidPlayer/VoidScript" method="_on_void_player_after_player_move"]
+[connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="GameScript" method="_on_void_script_tile_eaten"]
+[connection signal="game_lost" from="GameScript" to="GameScript" method="_on_game_lost"]
+[connection signal="game_win" from="GameScript" to="GameScript" method="_on_game_win"]
+[connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]
+[connection signal="void_player_turn" from="GameScript" to="VoidPlayer" method="_on_switch_turns"]
 
 [editable path="VoidPlayer"]

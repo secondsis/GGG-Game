@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal after_player_move
+
 @onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var up_raycast : RayCast2D = $up
 @onready var down_raycast : RayCast2D = $down
@@ -33,7 +35,7 @@ func _move(dir: Vector2):
 	self.global_position += dir * GameInfo.TILE_SIZE
 	# Keep the sprite behind for a bit until the tween
 	AnimatedSprite.global_position -= dir * GameInfo.TILE_SIZE
-		
+	
 	if anim_tween:
 		anim_tween.kill()
 	anim_tween = self.create_tween()
@@ -48,15 +50,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_my_turn:
 		return
-
-	if Input.is_action_just_pressed("ui_up"):
-		face_direction("up")
-	elif Input.is_action_just_pressed("ui_down"):
-		face_direction("down")
-	elif Input.is_action_just_pressed("ui_right"):
-		face_direction("right")
-	elif Input.is_action_just_pressed("ui_left"):
-		face_direction("left")
+	if !anim_tween or !anim_tween.is_running():
+		if Input.is_action_just_pressed("ui_up"):
+			face_direction("up")
+		elif Input.is_action_just_pressed("ui_down"):
+			face_direction("down")
+		elif Input.is_action_just_pressed("ui_right"):
+			face_direction("right")
+		elif Input.is_action_just_pressed("ui_left"):
+			face_direction("left")
 	
 	if has_input_bool("ui_up"):
 		AnimatedSprite.play("walk_up")
@@ -92,6 +94,7 @@ func _physics_process(delta: float) -> void:
 			_move(Vector2.RIGHT)
 		elif has_input_bool("ui_left") and !left_raycast.is_colliding():
 			_move(Vector2.LEFT)
+	after_player_move.emit()
 	
 
 func _on_switch_turns(is_turn: bool) -> void:

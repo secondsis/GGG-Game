@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://b6lomfrvhuhli"]
 
-[ext_resource type="Script" uid="uid://dhruy4744a0hq" path="res://scripts/PlayerController.gd" id="1_aug50"]
 [ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="1_ibkli"]
 [ext_resource type="PackedScene" uid="uid://du57tm7m78061" path="res://scenes/player.tscn" id="1_kiw3p"]
 [ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="2_78awf"]
 [ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="3_s0nni"]
 [ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="4_aug50"]
 [ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="5_s0nni"]
+[ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="8_400sg"]
+[ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="8_g4kob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbsmt"]
 texture = ExtResource("1_ibkli")
@@ -15,18 +16,31 @@ texture = ExtResource("1_ibkli")
 texture = ExtResource("2_78awf")
 0:0/0 = 0
 0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_0 = true
 2:0/0 = 0
 2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = true
 3:0/0 = 0
 3:0/0/terrain_set = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/custom_data_0 = true
 4:0/0 = 0
 4:0/0/terrain_set = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/custom_data_0 = true
 0:1/0 = 0
 0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = true
 1:1/0 = 0
 1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/terrain_set = 0
 3:1/0 = 0
@@ -47,8 +61,11 @@ texture = ExtResource("2_78awf")
 0:3/0/terrain_set = 0
 1:3/0 = 0
 1:3/0/terrain_set = 0
+1:3/0/custom_data_0 = true
 2:3/0 = 0
 2:3/0/terrain_set = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_400sg"]
 texture = ExtResource("3_s0nni")
@@ -75,92 +92,19 @@ texture = ExtResource("4_aug50")
 2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cpr0p"]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
+custom_data_layer_0/name = "Voidable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qbsmt")
 sources/1 = SubResource("TileSetAtlasSource_kiw3p")
 sources/2 = SubResource("TileSetAtlasSource_400sg")
 sources/3 = SubResource("TileSetAtlasSource_g4kob")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xj3m"]
-atlas = ExtResource("2_78awf")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mcffj"]
-atlas = ExtResource("2_78awf")
-region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2rd6h"]
-atlas = ExtResource("2_78awf")
-region = Rect2(48, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ua8r"]
-atlas = ExtResource("2_78awf")
-region = Rect2(32, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7sob"]
-atlas = ExtResource("2_78awf")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5y3l"]
-atlas = ExtResource("2_78awf")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjgi4"]
-atlas = ExtResource("2_78awf")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kyk2p"]
-atlas = ExtResource("2_78awf")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_45i86"]
-atlas = ExtResource("2_78awf")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sv1m6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xj3m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mcffj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2rd6h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ua8r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7sob")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5y3l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vjgi4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kyk2p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_45i86")
-}],
-"loop": true,
-"name": &"flash",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0nni"]
-size = Vector2(16, 16)
-
 [node name="Main" type="Node2D" unique_id=170183922]
 
-[node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("1_kiw3p")]
-position = Vector2(-132, -3)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=42786515]
+[node name="TileMap_Wall" type="TileMapLayer" parent="." unique_id=42786515]
+position = Vector2(-8, -8)
 tile_map_data = PackedByteArray("AAD4/wkAAQAAAAAAAAD5/wkAAQAAAAAAAAD6/wkAAQAAAAAAAAD7/wkAAQAAAAAAAAD8/wkAAQAAAAAAAAD9/wkAAQAAAAAAAAD+/wkAAQAAAAAAAAD//wkAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAACAAkAAQAAAAAAAAADAAkAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAHAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAJAPn/AQAAAAAAAAAJAPr/AQAAAAAAAAAJAPv/AQAAAAAAAAAJAPz/AQAAAAAAAAAJAP3/AQAAAAAAAAAJAP7/AQAAAAAAAAAJAP//AQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAJAAgAAQAAAAAAAAAJAAkAAQAAAAAAAAD2//b/AQAAAAAAAAD2//f/AQAAAAAAAAD2//j/AQAAAAAAAAD2//n/AQAAAAAAAAD2//r/AQAAAAAAAAD2//v/AQAAAAAAAAD2//z/AQAAAAAAAAD2//3/AQAAAAAAAAD2//7/AQAAAAAAAAD2////AQAAAAAAAAD2/wAAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wMAAQAAAAAAAAD2/wQAAQAAAAAAAAD2/wUAAQAAAAAAAAD2/wYAAQAAAAAAAAD2/wcAAQAAAAAAAAD2/wgAAQAAAAAAAAD2/wkAAQAAAAAAAAD3//b/AQAAAAAAAAD3/wkAAQAAAAAAAAD4//b/AQAAAAAAAAD5//b/AQAAAAAAAAD6//b/AQAAAAAAAAD7//b/AQAAAAAAAAD8//b/AQAAAAAAAAD9//b/AQAAAAAAAAD+//b/AQAAAAAAAAD///b/AQAAAAAAAAAAAPb/AQAAAAAAAAABAPb/AQAAAAAAAAACAPb/AQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAAGAPb/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAJAPj/AQAAAAAAAAD///f/AQAEAAAAAAD///j/AQAAAAEAAAD///n/AQAAAAEAAAD///r/AQAAAAEAAAD///v/AQAAAAEAAAD///z/AQAAAAEAAAD///3/AQAAAAEAAAD///7/AQAAAAEAAAD/////AQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAEAAAD//wQAAQAAAAEAAAD//wUAAQAAAAEAAAD//wYAAQAAAAEAAAD//wcAAQAAAAEAAAD//wgAAQABAAEAAAD+//f/AQADAAAAAAD9//f/AQACAAAAAAD8//f/AQACAAAAAAD7//f/AQACAAAAAAD6//f/AQACAAAAAAD5//f/AQACAAAAAAD4//f/AQACAAAAAAD3//f/AQABAAAAAAAAAPf/AQABAAAAAAABAPf/AQACAAAAAAACAPf/AQACAAAAAAADAPf/AQACAAAAAAAEAPf/AQACAAAAAAAFAPf/AQACAAAAAAAGAPf/AQACAAAAAAAHAPf/AQACAAAAAAAIAPf/AQADAAAAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
@@ -168,17 +112,18 @@ tile_set = SubResource("TileSet_cpr0p")
 zoom = Vector2(2, 2)
 script = ExtResource("5_s0nni")
 
-[node name="VoidPlayer" type="CharacterBody2D" parent="." unique_id=1961802750]
-position = Vector2(-110, -3)
-script = ExtResource("1_aug50")
+[node name="VoidPlayer" parent="." unique_id=925719812 instance=ExtResource("1_kiw3p")]
+position = Vector2(-112, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VoidPlayer" unique_id=864686393]
-z_index = 10
-sprite_frames = SubResource("SpriteFrames_sv1m6")
-animation = &"flash"
-frame_progress = 0.30414087
+[node name="AnimatedSprite2D" parent="VoidPlayer" index="0" unique_id=149505355]
+sprite_frames = ExtResource("8_400sg")
+animation = &"idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidPlayer" unique_id=1324413490]
-shape = SubResource("RectangleShape2D_s0nni")
+[node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("1_kiw3p")]
+position = Vector2(-144, 0)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VoidPlayer" unique_id=266504340]
+[node name="GameScript" type="Node2D" parent="." unique_id=716269097]
+unique_name_in_owner = true
+script = ExtResource("8_g4kob")
+
+[editable path="VoidPlayer"]

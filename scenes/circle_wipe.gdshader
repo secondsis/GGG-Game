@@ -12,13 +12,13 @@ void vertex() {
 void fragment() {
 	
 	// Called for every pixel the material is visible on.
-	vec2 uv = (FRAGCOORD.xy - 0.5 * screen_size) / min(screen_size.x, screen_size.y);
+	vec2 uv = (FRAGCOORD.xy - 0.5 * screen_size) / max(screen_size.x, screen_size.y);
 	
 	float dist = distance(uv, center);
 	
 	float alpha = smoothstep(radius, radius + softness, dist);
 	
-	COLOR = vec4(0.0, 0.0, 0.0, alpha);
+	COLOR = vec4(38.0f/255.0f, 13.0f/255.0f, 52.0f/255.0f, alpha);
 }
 
 //void light() {

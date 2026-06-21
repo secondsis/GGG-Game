@@ -5,21 +5,24 @@ signal gubby_player_turn(is_turn: bool)
 signal game_lost
 
 var amount_eat_left : int = 1
+var next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	void_player_turn.emit(true)
 	gubby_player_turn.emit(false)
-	var continue_button : Button = %ContinueButton
-	continue_button.button_up.connect(_on_continue)
+	#var continue_button : Button = %ContinueButton
+	#continue_button.button_up.connect(_on_continue)
 
 func _on_continue() -> void:
-	var next_level = preload("res://scenes/hello_world.tscn")
+	print("CONTINUE")
+	next_level = preload("res://scenes/hello_world.tscn")
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_transition_finished():
+	if next_level != null:
+		get_tree().change_scene_to_packed(next_level)
+
 
 func check_eaten_all():
 	if amount_eat_left <= 0:

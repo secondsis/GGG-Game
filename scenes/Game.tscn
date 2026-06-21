@@ -9,6 +9,10 @@
 [ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="8_400sg"]
 [ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="8_g4kob"]
 [ext_resource type="Script" uid="uid://cmlqw1oc8622m" path="res://scripts/void_player.gd" id="8_qy1jj"]
+[ext_resource type="Script" uid="uid://drkbtw8wkxae7" path="res://scripts/gubby_player.gd" id="9_qy1jj"]
+[ext_resource type="Script" uid="uid://ch8cuhd8ieuuh" path="res://scripts/carrot_animate.gd" id="11_3xj3m"]
+[ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="12_mcffj"]
+[ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://scenes/circle_wipe.gdshader" id="13_2rd6h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbsmt"]
 texture = ExtResource("1_ibkli")
@@ -287,6 +291,9 @@ sources/1 = SubResource("TileSetAtlasSource_3xj3m")
 sources/2 = SubResource("TileSetAtlasSource_mcffj")
 sources/3 = SubResource("TileSetAtlasSource_2rd6h")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy1jj"]
+size = Vector2(8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4kob"]
 atlas = ExtResource("3_s0nni")
 region = Rect2(0, 0, 16, 16)
@@ -382,6 +389,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attvq"]
 size = Vector2(8, 8)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcffj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rd6h"]
+texture = ExtResource("12_mcffj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ua8r"]
+shader = ExtResource("13_2rd6h")
+shader_parameter/screen_size = Vector2(1920, 1080)
+shader_parameter/center = Vector2(0, 0)
+shader_parameter/radius = 0.2870000136325
+shader_parameter/softness = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rd6h"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=170183922]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=834992288]
@@ -432,27 +454,119 @@ script = ExtResource("8_qy1jj")
 [node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("1_kiw3p")]
 position = Vector2(-144, -96)
 
+[node name="AnimatedSprite2D" parent="GubbyPlayer" index="0" unique_id=149505355]
+flip_h = true
+
+[node name="GubbyScript" type="Node2D" parent="GubbyPlayer" unique_id=724199216]
+script = ExtResource("9_qy1jj")
+
+[node name="Area2D" type="Area2D" parent="GubbyPlayer" unique_id=770260054]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GubbyPlayer/Area2D" unique_id=726222516]
+shape = SubResource("RectangleShape2D_qy1jj")
+
 [node name="GameScript" type="Node2D" parent="." unique_id=716269097]
 unique_name_in_owner = true
 script = ExtResource("8_g4kob")
 
-[node name="Carrot" type="Node2D" parent="." unique_id=1216452123]
+[node name="Carrot" type="Node2D" parent="." unique_id=1216452123 groups=["carrot"]]
 position = Vector2(112, -96)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrot" unique_id=1130577889]
 sprite_frames = SubResource("SpriteFrames_a8wo8")
-frame_progress = 0.5936405
+frame_progress = 0.56525916
+script = ExtResource("11_3xj3m")
 
 [node name="Area2D" type="Area2D" parent="Carrot" unique_id=1147011417]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carrot/Area2D" unique_id=1202539831]
 shape = SubResource("RectangleShape2D_attvq")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337848096]
+
+[node name="WinScreen" type="Control" parent="CanvasLayer" unique_id=356579037]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 144.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="CenterContainer" parent="CanvasLayer/WinScreen" unique_id=1962637015]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1920.0
+offset_bottom = 1130.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/WinScreen/Background" unique_id=2062484386]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/WinScreen" unique_id=709305074]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mcffj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/WinScreen/PanelContainer" unique_id=248455432]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "You won!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueContainer" type="CenterContainer" parent="CanvasLayer/WinScreen" unique_id=1522241598]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1920.0
+offset_bottom = 1180.0
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/WinScreen/ContinueContainer" unique_id=7417705]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_2rd6h")
+text = "CONTINUE"
+
+[node name="Transition" type="Control" parent="CanvasLayer" unique_id=11810148]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterTransition" type="CenterContainer" parent="CanvasLayer/Transition" unique_id=363247075]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition/CenterTransition" unique_id=1469167029]
+material = SubResource("ShaderMaterial_7ua8r")
+custom_minimum_size = Vector2(1080, 1080)
+layout_mode = 2
+
+[node name="LeftPanel" type="Panel" parent="CanvasLayer/Transition" unique_id=2049320128]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
+
+[node name="RightPanel" type="Panel" parent="CanvasLayer/Transition" unique_id=421910880]
+layout_mode = 0
+offset_left = 1500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
+
 [connection signal="after_player_move" from="VoidPlayer" to="VoidPlayer/VoidScript" method="_on_void_player_after_player_move"]
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="GameScript" method="_on_void_script_tile_eaten"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="VoidPlayer" method="_on_game_win"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GubbyPlayer" method="_on_game_win"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_win"]
+[connection signal="area_entered" from="GubbyPlayer/Area2D" to="GubbyPlayer/GubbyScript" method="_on_area_2d_area_entered"]
 [connection signal="game_lost" from="GameScript" to="GameScript" method="_on_game_lost"]
-[connection signal="game_win" from="GameScript" to="GameScript" method="_on_game_win"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]
 [connection signal="void_player_turn" from="GameScript" to="VoidPlayer" method="_on_switch_turns"]
 
 [editable path="VoidPlayer"]
+[editable path="GubbyPlayer"]

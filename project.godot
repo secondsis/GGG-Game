@@ -19,6 +19,12 @@ config/icon="res://assets/icon.svg"
 
 GameInfo="*uid://dd7y62ptfgbs0"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -27,6 +33,10 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+carrot="Upon gubby_player entering its trigger area, win the level"
 
 [physics]
 

@@ -40,7 +40,7 @@ func _move(dir: Vector2):
 		anim_tween.kill()
 	anim_tween = self.create_tween()
 	anim_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	anim_tween.tween_property(AnimatedSprite, "global_position", self.global_position, 0.5)
+	anim_tween.tween_property(AnimatedSprite, "global_position", self.global_position, 0.2)
 	anim_tween.set_trans(Tween.TRANS_SINE)
 
 func _ready() -> void:
@@ -59,21 +59,21 @@ func _process(delta: float) -> void:
 			face_direction("right")
 		elif Input.is_action_just_pressed("ui_left"):
 			face_direction("left")
-	
-	if has_input_bool("ui_up"):
-		AnimatedSprite.play("walk_up")
-		face_direction("up")
+	if anim_tween and anim_tween.is_running():
+		if has_input_bool("ui_up"):
+			AnimatedSprite.play("walk_up")
+			face_direction("up")
+			
+		elif has_input_bool("ui_down"):
+			AnimatedSprite.play("walk_down")
+			face_direction("down")
 		
-	elif has_input_bool("ui_down"):
-		AnimatedSprite.play("walk_down")
-		face_direction("down")
-	
-	if has_input_bool("ui_right"):
-		AnimatedSprite.play("walk_left")
-		face_direction("right")
-	elif has_input_bool("ui_left"):
-		AnimatedSprite.play("walk_left")
-		face_direction("left")
+		if has_input_bool("ui_right"):
+			AnimatedSprite.play("walk_left")
+			face_direction("right")
+		elif has_input_bool("ui_left"):
+			AnimatedSprite.play("walk_left")
+			face_direction("left")
 	
 	if (anim_tween != null && !anim_tween.is_running()):
 		var idle_direction = facing_direction
@@ -99,3 +99,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_switch_turns(is_turn: bool) -> void:
 	is_my_turn = is_turn
+
+func _on_game_win():
+	# Stop movement
+	is_my_turn = false

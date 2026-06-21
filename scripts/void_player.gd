@@ -25,7 +25,6 @@ func delete_all_voidable_tiles(pos: Vector2):
 	for tilemap_layer in tilemap_layers:
 		var is_voidable : bool = check_voidable_tile(pos, tilemap_layer)
 		if is_voidable:
-			print("ERASE CELL")
 			tilemap_layer.erase_cell(tilemap_layer.local_to_map(pos))
 			tile_eaten.emit()
 			# Only the highest layer can be eaten at a time

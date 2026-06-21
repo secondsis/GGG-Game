@@ -2,7 +2,6 @@ extends Node
 
 signal void_player_turn(is_turn: bool)
 signal gubby_player_turn(is_turn: bool)
-signal game_win
 signal game_lost
 
 var amount_eat_left : int = 1
@@ -11,6 +10,12 @@ var amount_eat_left : int = 1
 func _ready() -> void:
 	void_player_turn.emit(true)
 	gubby_player_turn.emit(false)
+	var continue_button : Button = %ContinueButton
+	continue_button.button_up.connect(_on_continue)
+
+func _on_continue() -> void:
+	var next_level = preload("res://scenes/hello_world.tscn")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,12 +25,18 @@ func check_eaten_all():
 	if amount_eat_left <= 0:
 		# IF all of the items have been eaten, kill void
 		void_player_turn.emit(false)
-		gubby_player_turn.emit(true)
 		get_node("/root/Main/VoidPlayer").queue_free()
+		await get_tree().process_frame
+		gubby_player_turn.emit(true)
+		
 
 func _on_game_win() -> void:
 	print("game won!")
-
+	# Call a UI to come up
+	var win_screen : Control = get_node("/root/Main/CanvasLayer/WinScreen")
+	win_screen.visible = true
+	# MAKE SURE TO CONNECT GAME WIN TO EACH PLAYER
+	
 
 func _on_game_lost() -> void:
 	print("game lost!")

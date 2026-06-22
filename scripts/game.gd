@@ -1,5 +1,6 @@
 extends Node
 
+signal game_start
 signal void_player_turn(is_turn: bool)
 signal gubby_player_turn(is_turn: bool)
 signal game_lost
@@ -11,6 +12,7 @@ var next_level
 func _ready() -> void:
 	void_player_turn.emit(true)
 	gubby_player_turn.emit(false)
+	game_start.emit()
 	#var continue_button : Button = %ContinueButton
 	#continue_button.button_up.connect(_on_continue)
 

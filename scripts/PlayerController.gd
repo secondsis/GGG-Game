@@ -8,6 +8,8 @@ signal after_player_move
 @onready var right_raycast : RayCast2D = $right
 @onready var left_raycast : RayCast2D = $left
 
+@export var movement_sfx : AudioStream
+
 var is_my_turn : bool = false
 var facing_direction : String = "right"
 var anim_tween : Tween
@@ -42,6 +44,9 @@ func _move(dir: Vector2):
 	anim_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	anim_tween.tween_property(AnimatedSprite, "global_position", self.global_position, 0.2)
 	anim_tween.set_trans(Tween.TRANS_SINE)
+	
+	if movement_sfx:
+		MusicManager.play_sound_stream(movement_sfx)
 
 func _ready() -> void:
 	pass

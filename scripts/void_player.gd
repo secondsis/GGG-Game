@@ -25,8 +25,16 @@ func delete_all_voidable_tiles(pos: Vector2):
 	for tilemap_layer in tilemap_layers:
 		var is_voidable : bool = check_voidable_tile(pos, tilemap_layer)
 		if is_voidable:
-			tilemap_layer.erase_cell(tilemap_layer.local_to_map(pos))
+			var map_pos = tilemap_layer.local_to_map(pos)
+			#var adjacent_tiles = tilemap_layer.get_surrounding_cells(map_pos)
+			tilemap_layer.erase_cell(map_pos)
+			# i spent so long trying to figure out how to make the tiles connect after deletion
+			#tilemap_layer.set_cells_terrain_connect(adjacent_tiles, 0, 0)
+# oh ymy hod
+			#tilemap_layer.set_cells_terrain_connect([adjacent_tiles.get(2)], 0, 0, true)
+			#tilemap_layer.set_cell(map_pos)
 			tile_eaten.emit()
+
 			# Only the highest layer can be eaten at a time
 			break
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6jejku50dr5j"
+path="res://.godot/imported/Brylie Christopher - 8-Bit Sunrise.mp3-6612e554142e134916aca7ec3a4e793f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Brylie Christopher - 8-Bit Sunrise.mp3"
+dest_files=["res://.godot/imported/Brylie Christopher - 8-Bit Sunrise.mp3-6612e554142e134916aca7ec3a4e793f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

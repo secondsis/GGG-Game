@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sgurrxoclbao"
+path="res://.godot/imported/Greg Davis - flurries.mp3-e8dc910327a0e6e5f5270fc1ebefec73.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Greg Davis - flurries.mp3"
+dest_files=["res://.godot/imported/Greg Davis - flurries.mp3-e8dc910327a0e6e5f5270fc1ebefec73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

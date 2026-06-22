@@ -5,13 +5,13 @@ signal finished_transition
 @onready var color_rect = $CenterTransition/ColorRect
 @onready var black_panel = $BlackPanel
 
-var duration = 5
-var timer = duration
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-var test = true
+#var duration = 5
+#var timer = duration
+## Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+	#pass # Replace with function body.
+#
+#var test = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
@@ -45,6 +45,7 @@ func exit_transition():
 	finished_transition.emit()
 
 func enter_transition():
+	await get_tree().process_frame
 	var descendants : Array[Node] = GameInfo.get_descendants(self)
 	for desc in descendants:
 		if desc is Control:

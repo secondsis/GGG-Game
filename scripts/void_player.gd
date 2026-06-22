@@ -32,13 +32,17 @@ func delete_all_voidable_tiles(pos: Vector2):
 # oh ymy hod
 			#tilemap_layer.set_cells_terrain_connect([adjacent_tiles.get(2)], 0, 0, true)
 			#tilemap_layer.set_cell(map_pos)
-			tile_eaten.emit()
-			if randi() % 2 == 0:
-				MusicManager.play_sound("res://assets/audio/boom1.wav")
-			else: 
-				MusicManager.play_sound("res://assets/audio/boom2.wav")
+			eat_tile_effects()
 			# Only the highest layer can be eaten at a time
 			break
+
+func eat_tile_effects():
+	tile_eaten.emit()
+	if randi() % 2 == 0:
+		MusicManager.play_sound("res://assets/audio/boom1.wav")
+	else: 
+		MusicManager.play_sound("res://assets/audio/boom2.wav")
+
 
 func check_voidable_tile(pos: Vector2, tilemap_layer: TileMapLayer) -> bool:
 	var this_cell = tilemap_layer.local_to_map(pos)
@@ -51,6 +55,23 @@ func check_voidable_tile(pos: Vector2, tilemap_layer: TileMapLayer) -> bool:
 
 
 func _on_void_player_after_player_move() -> void:
-	delete_all_voidable_tiles(self.global_position)
+	var deleted_block = false
+	# Manually check if on top of pushable block
+	var area_2d : Area2D = get_parent().find_child("Area2D")
+	var overlaps = area_2d.get_overlapping_areas()
+
+	if overlaps.size() > 0:
+		print("overlaps exist")
+		for overlap in overlaps:
+			if overlap.get_parent().is_in_group("block"):
+				overlap.get_parent().queue_free()
+				deleted_block = true
+				eat_tile_effects()
+				break
+			
+	
+	if not deleted_block:
+		delete_all_voidable_tiles(self.global_position)
+	
 	var label : RichTextLabel = get_parent().find_child("AnimatedSprite2D").find_child("RichTextLabel")
 	label.text = "x" + str(%GameScript.amount_eat_left)

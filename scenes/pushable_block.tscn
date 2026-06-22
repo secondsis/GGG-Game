@@ -17,14 +17,38 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2131824720]
 shape = SubResource("RectangleShape2D_b5hir")
 
-[node name="up" type="RayCast2D" parent="." unique_id=400687540]
+[node name="block_up" type="RayCast2D" parent="." unique_id=400687540]
+target_position = Vector2(0, -16)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_down" type="RayCast2D" parent="." unique_id=1430208271]
+target_position = Vector2(0, 16)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_right" type="RayCast2D" parent="." unique_id=533276489]
+target_position = Vector2(16, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_left" type="RayCast2D" parent="." unique_id=1510450852]
+target_position = Vector2(-16, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="up" type="RayCast2D" parent="." unique_id=2092124305]
 target_position = Vector2(0, -16)
 
-[node name="down" type="RayCast2D" parent="." unique_id=1430208271]
+[node name="down" type="RayCast2D" parent="." unique_id=1482360596]
 target_position = Vector2(0, 16)
 
-[node name="right" type="RayCast2D" parent="." unique_id=533276489]
+[node name="right" type="RayCast2D" parent="." unique_id=490963233]
 target_position = Vector2(16, 0)
 
-[node name="left" type="RayCast2D" parent="." unique_id=1510450852]
+[node name="left" type="RayCast2D" parent="." unique_id=1965706247]
 target_position = Vector2(-16, 0)

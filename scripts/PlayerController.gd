@@ -14,7 +14,7 @@ signal after_player_move
 var is_my_turn : bool = false
 var facing_direction : String = "right"
 var anim_tween : Tween
-var block_anim_tween : Tween
+#var block_anim_tween : Tween
 
 
 func face_direction(dir: String):
@@ -35,55 +35,66 @@ func has_input_bool(action_released: String):
 	
 	return Input.is_action_just_released(action_released) and !others_pressing
 
-func check_and_move_block(dir: Vector2):
-	var gubby_player = self.get_parent()
-	var player_direction : String
+func check_and_move_block(dir: Vector2, current_block: Node2D):
+	var can_move_afterwards = true
+	var direction_string : String
 
 	if dir == Vector2.LEFT:
-		player_direction = "left"
+		direction_string = "left"
 	elif dir == Vector2.RIGHT:
-		player_direction = "right"
+		direction_string = "right"
 	elif dir == Vector2.UP:
-		player_direction = "up"
+		direction_string = "up"
 	elif dir == Vector2.DOWN:
-		player_direction = "down"
+		direction_string = "down"
 	var block
 	# Check for block
-	var raycast : RayCast2D = self.find_child("block_" + player_direction.to_lower())
+	var raycast : RayCast2D = current_block.find_child("block_" + direction_string)
 	if raycast.is_colliding():
+		print("Collide")
 		var collider = raycast.get_collider()
 		
 		if collider.get_parent().is_in_group("block"):
 			block = collider.get_parent()
 	if not block:
-		return true
+		# True as in, can move
+		# This is air, nothing to push here
+		can_move_afterwards = true
+		return can_move_afterwards
 	
-
 	# Move block
 	# But check if the block is moved up to a wall
-	if block.find_child(player_direction).is_colliding():
-		return false
+	# up/down/left/right are WALL checkers, block_up/block_down/etc.. are OTHER BLOCK checkers
+	if block.find_child(direction_string).is_colliding():
+		# Cannot move
+		can_move_afterwards = false
+		return can_move_afterwards
+	
+	can_move_afterwards = check_and_move_block(dir, block)
+	
+	if not can_move_afterwards:
+		return can_move_afterwards
+	
 	block.global_position += dir * GameInfo.TILE_SIZE
 	# Keep the sprite behind for a bit until the tween
 	var block_sprite = block.find_child("Sprite2D")
 	block_sprite.global_position -= dir * GameInfo.TILE_SIZE
 	
-	if block_anim_tween:
-		block_anim_tween.kill()
-	block_anim_tween = self.create_tween()
+
+	var block_anim_tween = self.create_tween()
 	block_anim_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	block_anim_tween.tween_property(block_sprite, "global_position", block_sprite.global_position + dir * GameInfo.TILE_SIZE, 0.2)
 	block_anim_tween.set_trans(Tween.TRANS_SINE)
 	
 	# Block Move SFX
-	#MusicManager.play_sound("res://assets/audio/block")
+	MusicManager.play_sound("res://assets/audio/robot_hum.wav")
 	return true
 	
 func _move(dir: Vector2):
 	
 	if is_gubby:
 		# Move Blocks
-		var can_move = check_and_move_block(dir)
+		var can_move = check_and_move_block(dir, self)
 		if not can_move:
 			return
 	# Move the overall player forward
@@ -145,19 +156,20 @@ func _physics_process(delta: float) -> void:
 		if has_input_bool("ui_up"):
 			if !up_raycast.is_colliding():
 				_move(Vector2.UP)
-			after_player_move.emit()
+			#after_player_move.emit()
 		elif has_input_bool("ui_down"):
 			if !down_raycast.is_colliding():
 				_move(Vector2.DOWN)
-			after_player_move.emit()
+			#after_player_move.emit()
 		elif has_input_bool("ui_right"):
 			if !right_raycast.is_colliding():
 				_move(Vector2.RIGHT)
-			after_player_move.emit()
+			#after_player_move.emit()
 		elif has_input_bool("ui_left"):
 			if !left_raycast.is_colliding():
 				_move(Vector2.LEFT)
-			after_player_move.emit()
+			#after_player_move.emit()
+		after_player_move.emit()
 	
 	
 

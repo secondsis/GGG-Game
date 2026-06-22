@@ -553,6 +553,8 @@ collision_mask = 2
 script = ExtResource("12_nrec3")
 
 [node name="Area2D" type="Area2D" parent="VoidPlayer" unique_id=96411581]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidPlayer/Area2D" unique_id=938136615]
 shape = SubResource("RectangleShape2D_s0nni")
@@ -701,15 +703,17 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Overlay" unique_id=719892340]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_csif5")
 
 [node name="PushableBlock" parent="." unique_id=2034978505 instance=ExtResource("21_ishhe")]
-position = Vector2(80, 208)
+position = Vector2(48, 128)
 
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]

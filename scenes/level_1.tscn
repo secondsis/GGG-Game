@@ -120,6 +120,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attvq"]
 size = Vector2(8, 8)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2xxo"]
+bg_color = Color(0.52912915, 0.15594886, 0.41551143, 0.58000004)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcffj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rd6h"]
@@ -455,6 +462,18 @@ sources/1 = SubResource("TileSetAtlasSource_veocg")
 sources/2 = SubResource("TileSetAtlasSource_h7pj6")
 sources/3 = SubResource("TileSetAtlasSource_jsfuf")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2xxo"]
+load_path = "res://.godot/imported/VoidIsYou_Tutorial.png-b74b4244be06e4df1949ccc1d8b0a5bb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cbcq"]
+load_path = "res://.godot/imported/VoidIsYou_Tutorial.png-b74b4244be06e4df1949ccc1d8b0a5bb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_isj1j"]
+load_path = "res://.godot/imported/VoidIsYou_Tutorial.png-b74b4244be06e4df1949ccc1d8b0a5bb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_so66j"]
+load_path = "res://.godot/imported/VoidIsYou_Tutorial.png-b74b4244be06e4df1949ccc1d8b0a5bb.ctex"
+
 [node name="Main" type="Node2D" unique_id=170183922]
 
 [node name="GameScript" type="Node2D" parent="." unique_id=716269097]
@@ -558,6 +577,7 @@ offset_bottom = 1130.0
 [node name="Panel" type="Panel" parent="CanvasLayer/WinScreen/Background" unique_id=2062484386]
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2xxo")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/WinScreen" unique_id=709305074]
 layout_mode = 0
@@ -567,6 +587,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mcffj")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/WinScreen/PanelContainer" unique_id=248455432]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("12_2cbcq")
 theme_override_font_sizes/normal_font_size = 64
 text = "You won!"
 scroll_active = false
@@ -581,7 +602,9 @@ offset_bottom = 1180.0
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer/WinScreen/ContinueContainer" unique_id=7417705]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("12_2cbcq")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_2rd6h")
 text = "CONTINUE"
@@ -631,6 +654,45 @@ tile_set = SubResource("TileSet_0sunb")
 position = Vector2(-8, -8)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAUAAAAAQAAAAAAAAAUAAEAAQAAAAAAAAAUAAIAAQAAAAAAAAAUAAMAAQAAAAAAAAAUAAQAAQAAAAAAAAAUAAUAAQAAAAAAAAAUAAYAAQAAAAAAAAAUAAcAAQAAAAAAAAAUAAgAAQAAAAAAAAAUAAkAAQAAAAAAAAAUAAoAAQAAAAAAAAATAAoAAQAAAAAAAAAAAAoAAQAAAAAAAAABAAoAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAoAAQAAAAAAAAASAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAALAAoAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_p3dd0")
+
+[node name="Tutorial" type="Node2D" parent="." unique_id=2010573629]
+
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial" unique_id=253395220]
+position = Vector2(80, 16)
+texture = SubResource("CompressedTexture2D_x2xxo")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Tutorial" unique_id=625787383]
+position = Vector2(80, 32)
+texture = SubResource("CompressedTexture2D_2cbcq")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Tutorial" unique_id=1414357064]
+position = Vector2(64, 32)
+texture = SubResource("CompressedTexture2D_isj1j")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Tutorial" unique_id=438237132]
+position = Vector2(96, 32)
+texture = SubResource("CompressedTexture2D_so66j")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial" unique_id=1334524659]
+offset_left = 60.0
+offset_top = 37.0
+offset_right = 860.0
+offset_bottom = 437.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/normal_font = ExtResource("12_2cbcq")
+theme_override_font_sizes/normal_font_size = 160
+text = "MOVE"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]

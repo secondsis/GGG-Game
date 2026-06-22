@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cntnna0v74guw"]
+
+[ext_resource type="Texture2D" uid="uid://b337eh0h1x05e" path="res://assets/VoidIsYou_PushableBlock.png" id="1_b5hir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5hir"]
+size = Vector2(8, 8)
+
+[node name="PushableBlock" type="Node2D" unique_id=2034978505 groups=["block"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1446304356]
+texture = ExtResource("1_b5hir")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1387001734]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2131824720]
+shape = SubResource("RectangleShape2D_b5hir")
+
+[node name="up" type="RayCast2D" parent="." unique_id=400687540]
+target_position = Vector2(0, -16)
+
+[node name="down" type="RayCast2D" parent="." unique_id=1430208271]
+target_position = Vector2(0, 16)
+
+[node name="right" type="RayCast2D" parent="." unique_id=533276489]
+target_position = Vector2(16, 0)
+
+[node name="left" type="RayCast2D" parent="." unique_id=1510450852]
+target_position = Vector2(-16, 0)

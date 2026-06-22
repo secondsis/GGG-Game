@@ -9,10 +9,13 @@ signal after_player_move
 @onready var left_raycast : RayCast2D = $left
 
 @export var movement_sfx : AudioStream
+@export var is_gubby : bool = false
 
 var is_my_turn : bool = false
 var facing_direction : String = "right"
 var anim_tween : Tween
+var block_anim_tween : Tween
+
 
 func face_direction(dir: String):
 	facing_direction = dir
@@ -32,7 +35,57 @@ func has_input_bool(action_released: String):
 	
 	return Input.is_action_just_released(action_released) and !others_pressing
 
+func check_and_move_block(dir: Vector2):
+	var gubby_player = self.get_parent()
+	var player_direction : String
+
+	if dir == Vector2.LEFT:
+		player_direction = "left"
+	elif dir == Vector2.RIGHT:
+		player_direction = "right"
+	elif dir == Vector2.UP:
+		player_direction = "up"
+	elif dir == Vector2.DOWN:
+		player_direction = "down"
+	var block
+	# Check for block
+	var raycast : RayCast2D = self.find_child("block_" + player_direction.to_lower())
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		
+		if collider.get_parent().is_in_group("block"):
+			block = collider.get_parent()
+	if not block:
+		return true
+	
+
+	# Move block
+	# But check if the block is moved up to a wall
+	if block.find_child(player_direction).is_colliding():
+		return false
+	block.global_position += dir * GameInfo.TILE_SIZE
+	# Keep the sprite behind for a bit until the tween
+	var block_sprite = block.find_child("Sprite2D")
+	block_sprite.global_position -= dir * GameInfo.TILE_SIZE
+	
+	if block_anim_tween:
+		block_anim_tween.kill()
+	block_anim_tween = self.create_tween()
+	block_anim_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	block_anim_tween.tween_property(block_sprite, "global_position", block_sprite.global_position + dir * GameInfo.TILE_SIZE, 0.2)
+	block_anim_tween.set_trans(Tween.TRANS_SINE)
+	
+	# Block Move SFX
+	#MusicManager.play_sound("res://assets/audio/block")
+	return true
+	
 func _move(dir: Vector2):
+	
+	if is_gubby:
+		# Move Blocks
+		var can_move = check_and_move_block(dir)
+		if not can_move:
+			return
 	# Move the overall player forward
 	self.global_position += dir * GameInfo.TILE_SIZE
 	# Keep the sprite behind for a bit until the tween
@@ -47,6 +100,7 @@ func _move(dir: Vector2):
 	
 	if movement_sfx:
 		MusicManager.play_sound_stream(movement_sfx)
+	
 
 # process animations
 func _process(delta: float) -> void:

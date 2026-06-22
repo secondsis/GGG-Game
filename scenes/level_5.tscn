@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://cg2t2kj2r1f3s"]
 
 [ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="1_csif5"]
+[ext_resource type="Texture2D" uid="uid://c76tl2s70j7ma" path="res://assets/VoidIsYou_Planks.png" id="2_5bvhu"]
 [ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="2_vds1t"]
 [ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="3_5bvhu"]
 [ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="4_ishhe"]
 [ext_resource type="Texture2D" uid="uid://cicfblsq0817o" path="res://assets/VoidIsYou_WALLSAGAIN.png" id="5_gnwwf"]
 [ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="6_vorqn"]
 [ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="7_5kbkd"]
+[ext_resource type="Texture2D" uid="uid://caw34ccmxnoxg" path="res://assets/VoidIsYou_Ghost.png" id="8_ishhe"]
 [ext_resource type="PackedScene" uid="uid://du57tm7m78061" path="res://scenes/player.tscn" id="8_u1mn7"]
 [ext_resource type="AudioStream" uid="uid://d3vjsnd8gu38n" path="res://assets/audio/shadowDie.wav" id="9_cijsf"]
 [ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="10_mnrma"]
@@ -18,6 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="16_wgn3r"]
 [ext_resource type="Script" uid="uid://bfnyx3e1jf4qx" path="res://scripts/control_transition.gd" id="17_p5exd"]
 [ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://assets/circle_wipe.gdshader" id="18_uucwl"]
+[ext_resource type="PackedScene" uid="uid://cntnna0v74guw" path="res://scenes/pushable_block.tscn" id="21_ishhe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnwwf"]
+texture = ExtResource("2_5bvhu")
+0:0/0 = 0
+0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kiw3p"]
 texture = ExtResource("2_vds1t")
@@ -153,6 +161,7 @@ sources/1 = SubResource("TileSetAtlasSource_kiw3p")
 sources/2 = SubResource("TileSetAtlasSource_400sg")
 sources/3 = SubResource("TileSetAtlasSource_g4kob")
 sources/5 = SubResource("TileSetAtlasSource_7nomh")
+sources/0 = SubResource("TileSetAtlasSource_gnwwf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ua8r"]
 texture = ExtResource("6_vorqn")
@@ -238,6 +247,15 @@ texture = ExtResource("4_ishhe")
 1:1/0 = 0
 2:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bvhu"]
+texture = ExtResource("8_ishhe")
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+0:0/0/custom_data_3 = true
+
 [sub_resource type="TileSet" id="TileSet_kyk2p"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -247,10 +265,13 @@ custom_data_layer_1/name = "Key"
 custom_data_layer_1/type = 1
 custom_data_layer_2/name = "Door"
 custom_data_layer_2/type = 1
+custom_data_layer_3/name = "Ghost"
+custom_data_layer_3/type = 1
 sources/0 = SubResource("TileSetAtlasSource_7ua8r")
 sources/1 = SubResource("TileSetAtlasSource_r7sob")
 sources/2 = SubResource("TileSetAtlasSource_y5y3l")
 sources/3 = SubResource("TileSetAtlasSource_vjgi4")
+sources/5 = SubResource("TileSetAtlasSource_5bvhu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy1jj"]
 texture = ExtResource("6_vorqn")
@@ -474,12 +495,12 @@ script = ExtResource("1_csif5")
 
 [node name="TileMap_Wall" type="TileMapLayer" parent="TileMap" unique_id=42786515]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAAGAAkABQABAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAAJAAkABQACAAAAAAAKAAkABQACAAAAAAALAAkABQACAAAAAAAMAAkABQACAAAAAAANAAkABQACAAAAAAAOAAkABQACAAAAAAAPAAkABQACAAAAAAAQAAkABQACAAAAAAARAAkABQACAAAAAAASAAkABQACAAAAAAATAAkABQACAAAAAAAUAAkABQADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAAkABQABAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAAJAAkABQACAAAAAAAKAAkABQACAAAAAAALAAkABQACAAAAAAAMAAkABQACAAAAAAANAAkABQACAAAAAAAOAAkABQACAAAAAAAPAAkABQACAAAAAAAQAAkABQACAAAAAAARAAkABQACAAAAAAASAAkABQACAAAAAAATAAkABQACAAAAAAAUAAkABQADAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
 [node name="TileMap_InteractiveNoCollide" type="TileMapLayer" parent="TileMap" unique_id=2060783861]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAANAAUAAQABAAMAAAAPAAcAAQACAAMAAAA=")
+tile_map_data = PackedByteArray("AAANAAUAAQABAAMAAAAPAAcAAQACAAMAAAAMAAMABQAAAAAAAAA=")
 tile_set = SubResource("TileSet_kyk2p")
 
 [node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
@@ -539,9 +560,42 @@ shape = SubResource("RectangleShape2D_s0nni")
 [node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("8_u1mn7")]
 position = Vector2(32, 64)
 movement_sfx = ExtResource("13_u88kh")
+is_gubby = true
 
 [node name="AnimatedSprite2D" parent="GubbyPlayer" index="0" unique_id=149505355]
 flip_h = true
+
+[node name="block_up" type="RayCast2D" parent="GubbyPlayer" unique_id=1969186723]
+position = Vector2(0, -8)
+target_position = Vector2(0, -16)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_down" type="RayCast2D" parent="GubbyPlayer" unique_id=707099396]
+position = Vector2(0, 8)
+target_position = Vector2(0, 16)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_left" type="RayCast2D" parent="GubbyPlayer" unique_id=636629581]
+position = Vector2(-8, 0)
+target_position = Vector2(-16, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_right" type="RayCast2D" parent="GubbyPlayer" unique_id=527238249]
+position = Vector2(8, 0)
+target_position = Vector2(16, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="GubbyScript" type="Node2D" parent="GubbyPlayer" unique_id=724199216]
 script = ExtResource("14_jrosa")
@@ -654,6 +708,9 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_csif5")
 
+[node name="PushableBlock" parent="." unique_id=2034978505 instance=ExtResource("21_ishhe")]
+position = Vector2(80, 208)
+
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]
 [connection signal="void_player_turn" from="GameScript" to="VoidPlayer" method="_on_switch_turns"]
@@ -662,6 +719,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_csif5")
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="Camera2D" method="toggle_camera_shake"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_unlock_door"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_grab_key"]
+[connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_ghost_and_die"]
 [connection signal="game_lost" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_lost"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_win"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="VoidPlayer" method="_on_game_win"]

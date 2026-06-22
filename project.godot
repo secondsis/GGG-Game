@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 carrot="Upon gubby_player entering its trigger area, win the level"
 void=""
 death=""
+block=""
 
 [input]
 

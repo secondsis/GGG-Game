@@ -16,6 +16,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		game_lost.emit()
 		MusicManager.play_sound("res://assets/audio/boom2.wav")
 
+func check_ghost_and_die():
+	var has_tag = GameInfo.check_tiles_with_tag(self.global_position, "Ghost")
+	if has_tag:
+		game_lost.emit()
+		MusicManager.play_sound("res://assets/audio/boom2.wav")
 # To be called after each move.
 func check_and_grab_key():
 	var has_tag = GameInfo.check_tiles_with_tag(self.global_position, "Key")

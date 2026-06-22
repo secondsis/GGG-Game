@@ -31,7 +31,7 @@ func shake_camera(strength: float):
 	else:
 		offset = Vector2.ZERO
 
-func toggle_camera_shake(enable: bool, strength := 8.0, duration := 0.25):
+func toggle_camera_shake(enable := true, strength := 8.0, duration := 0.1):
 	if !enable:
 		shake_strength = 0.0
 		return

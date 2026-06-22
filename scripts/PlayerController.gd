@@ -90,13 +90,17 @@ func _physics_process(delta: float) -> void:
 	if !anim_tween or !anim_tween.is_running():
 		if has_input_bool("ui_up") and !up_raycast.is_colliding():
 			_move(Vector2.UP)
+			after_player_move.emit()
 		elif has_input_bool("ui_down") and !down_raycast.is_colliding():
 			_move(Vector2.DOWN)
+			after_player_move.emit()
 		elif has_input_bool("ui_right") and !right_raycast.is_colliding():
 			_move(Vector2.RIGHT)
+			after_player_move.emit()
 		elif has_input_bool("ui_left") and !left_raycast.is_colliding():
 			_move(Vector2.LEFT)
-	after_player_move.emit()
+			after_player_move.emit()
+	
 	
 
 func _on_switch_turns(is_turn: bool) -> void:

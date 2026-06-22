@@ -4,13 +4,12 @@ const TILE_SIZE = 16
 const GAME_VERSION = "0.0.0"
 
 var current_level = 1
-@onready var tilemap_parent : Node2D = get_node("/root/Main/TileMap")
 #var stars_collected = 0
 
 const level_info = [
 	{ # Level 1
 		"scene": "res://scenes/level_1.tscn",
-		"void_turns": 1,
+		"void_turns": 10,
 		"scene_size": Vector2(20, 10),
 		"music": "res://assets/audio/8_bit_game.mp3"
 	},
@@ -22,12 +21,18 @@ const level_info = [
 	},
 	{ # Level 3
 		"scene": "res://scenes/level_3.tscn",
-		"void_turns": 3,
+		"void_turns": 1,
 		"scene_size": Vector2(20, 10),
 		"music": "res://assets/audio/8_bit_game.mp3"
 	},
 	{ # Level 4
-		"scene": "res://scenes/level_3.tscn",
+		"scene": "res://scenes/level_4.tscn",
+		"void_turns": 2,
+		"scene_size": Vector2(20, 10),
+		"music": "res://assets/audio/8_bit_game.mp3"
+	},
+	{ # Level 5
+		"scene": "res://scenes/level_5.tscn",
 		"void_turns": 2,
 		"scene_size": Vector2(20, 10),
 		"music": "res://assets/audio/8_bit_game.mp3"
@@ -51,6 +56,8 @@ func get_descendants(node: Node):
 	return descendants
 
 func check_tiles_with_tag(pos: Vector2, tag: String) -> bool:
+	var tilemap_parent : Node2D = get_node("/root/Main/TileMap")
+
 	var tilemap_children = tilemap_parent.get_children()
 	var tilemap_layers = []
 	
@@ -62,7 +69,9 @@ func check_tiles_with_tag(pos: Vector2, tag: String) -> bool:
 		var map_pos = tilemap_layer.local_to_map(pos)
 		var is_tag : bool = check_tile_tag(map_pos, tag, tilemap_layer)
 		if is_tag:
+			print("TAG")
 			return true
+	print("no tag :(")
 	return false
 
 func check_tile_tag(pos: Vector2i, tag: String, tilemap_layer):

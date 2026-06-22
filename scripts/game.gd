@@ -6,6 +6,7 @@ signal gubby_player_turn(is_turn: bool)
 
 var amount_eat_left : int
 var next_level
+var num_keys : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,3 +62,7 @@ func _on_game_lost() -> void:
 func _on_void_script_tile_eaten() -> void:
 	amount_eat_left -= 1
 	check_eaten_all()
+
+
+func _on_gubby_script_got_key() -> void:
+	num_keys += 1

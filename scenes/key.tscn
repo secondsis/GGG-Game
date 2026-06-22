@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ns04dbx0d6hf"]
+
+[ext_resource type="Texture2D" uid="uid://cass2b4mswx10" path="res://assets/VoidIsYou_Key.png" id="1_fttkb"]
+[ext_resource type="Script" uid="uid://crlxrkjx733jf" path="res://scripts/key_orbit.gd" id="2_wy8tx"]
+
+[node name="Key" type="Node2D" unique_id=426931865]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1818431371]
+texture = ExtResource("1_fttkb")
+script = ExtResource("2_wy8tx")

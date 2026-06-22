@@ -1,14 +1,18 @@
 extends Camera2D
 
-var default_world_width : int = 20 * GameInfo.TILE_SIZE
-var default_world_height : int = 10 * GameInfo.TILE_SIZE
+#var default_world_width : int = 20 * GameInfo.TILE_SIZE
+#var default_world_height : int = 10 * GameInfo.TILE_SIZE
 
 var shake_strength = 0.0
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	set_camera_zoom(default_world_width, default_world_height)
+## Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+	#set_camera_zoom(default_world_width, default_world_height)
+
+func set_camera_zoom_vector(world_size: Vector2):
+	set_camera_zoom(world_size.x * GameInfo.TILE_SIZE, world_size.y * GameInfo.TILE_SIZE)
 
 func set_camera_zoom(world_width: int, world_height: int):
+	#print("zoom: " + str(world_width) + ", " + str(world_height))
 	var viewport_size : Vector2 = get_viewport_rect().size
 	#print(viewport_size)
 	#print(str(world_width) + ", " + str(world_height))

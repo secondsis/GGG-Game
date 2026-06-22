@@ -88,17 +88,21 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if !anim_tween or !anim_tween.is_running():
-		if has_input_bool("ui_up") and !up_raycast.is_colliding():
-			_move(Vector2.UP)
+		if has_input_bool("ui_up"):
+			if !up_raycast.is_colliding():
+				_move(Vector2.UP)
 			after_player_move.emit()
-		elif has_input_bool("ui_down") and !down_raycast.is_colliding():
-			_move(Vector2.DOWN)
+		elif has_input_bool("ui_down"):
+			if !down_raycast.is_colliding():
+				_move(Vector2.DOWN)
 			after_player_move.emit()
-		elif has_input_bool("ui_right") and !right_raycast.is_colliding():
-			_move(Vector2.RIGHT)
+		elif has_input_bool("ui_right"):
+			if !right_raycast.is_colliding():
+				_move(Vector2.RIGHT)
 			after_player_move.emit()
-		elif has_input_bool("ui_left") and !left_raycast.is_colliding():
-			_move(Vector2.LEFT)
+		elif has_input_bool("ui_left"):
+			if !left_raycast.is_colliding():
+				_move(Vector2.LEFT)
 			after_player_move.emit()
 	
 	

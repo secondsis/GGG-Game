@@ -13,8 +13,12 @@ func _ready() -> void:
 	void_player_turn.emit(true)
 	gubby_player_turn.emit(false)
 	game_start.emit()
-	MusicManager.play_music(GameInfo.get_level_info()["music"])
-	amount_eat_left = GameInfo.get_level_info()["void_turns"]
+	# Level Info: Scene, Void Turns, Scene Size, Music
+	# Scene Done!
+	var level_info = GameInfo.get_level_info()
+	amount_eat_left = level_info["void_turns"]
+	get_node("/root/Main/Camera2D").set_camera_zoom_vector(level_info["scene_size"])
+	MusicManager.play_music(level_info["music"], true)
 
 
 func _input(event: InputEvent) -> void:

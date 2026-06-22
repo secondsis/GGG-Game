@@ -48,9 +48,6 @@ func _move(dir: Vector2):
 	if movement_sfx:
 		MusicManager.play_sound_stream(movement_sfx)
 
-func _ready() -> void:
-	pass
-
 # process animations
 func _process(delta: float) -> void:
 	if !is_my_turn:

@@ -9,8 +9,8 @@ func _ready() -> void:
 
 func set_camera_zoom(world_width: int, world_height: int):
 	var viewport_size : Vector2 = get_viewport_rect().size
-	print(viewport_size)
-	print(str(world_width) + ", " + str(world_height))
+	#print(viewport_size)
+	#print(str(world_width) + ", " + str(world_height))
 	# Pick whichever side is smallest
 	self.position = Vector2(world_width / 2, world_height / 2)
 	var zoom_size_x : int = viewport_size.x / world_width

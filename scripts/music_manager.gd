@@ -21,9 +21,9 @@ func play_music(path: String, override := false):
 	play_music_stream(load(path), override)
 
 func play_music_stream(stream: AudioStream, override := false):
-	if !override and audio_player.stream and audio_player.playing:
+	if (audio_player.stream and audio_player.stream.resource_path == stream.resource_path) or (!override and audio_player.stream and audio_player.playing):
 		return
-	
+	audio_player.volume_db = -10.0
 	audio_player.stream = stream
 	audio_player.play()
 

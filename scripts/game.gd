@@ -13,16 +13,25 @@ func _ready() -> void:
 	void_player_turn.emit(true)
 	gubby_player_turn.emit(false)
 	game_start.emit()
-	#var continue_button : Button = %ContinueButton
-	#continue_button.button_up.connect(_on_continue)
+	MusicManager.play_music(GameInfo.get_level_info()["music"])
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("redo_level"):
+		redo()
+
+func redo():
+	get_tree().change_scene_to_packed(GameInfo.get_level_info()["scene"])
 
 func _on_continue() -> void:
 	print("CONTINUE")
-	next_level = preload("res://scenes/hello_world.tscn")
-	
+	next_level = GameInfo.level_info[GameInfo.current_level]["scene"]
+	MusicManager.play_sound("res://assets/audio/mouseClick.wav")
 
+# Go to next level
 func _on_transition_finished():
 	if next_level != null:
+		GameInfo.increase_level()
 		get_tree().change_scene_to_packed(next_level)
 
 
@@ -40,6 +49,7 @@ func _on_game_win() -> void:
 	# Call a UI to come up
 	var win_screen : Control = get_node("/root/Main/CanvasLayer/WinScreen")
 	win_screen.visible = true
+	MusicManager.play_sound("res://assets/audio/win.wav")
 	# MAKE SURE TO CONNECT GAME WIN TO EACH PLAYER
 	
 

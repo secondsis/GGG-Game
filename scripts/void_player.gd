@@ -16,11 +16,6 @@ func _ready() -> void:
 	
 	tilemap_layers.reverse()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func delete_all_voidable_tiles(pos: Vector2):
 	for tilemap_layer in tilemap_layers:
 		var is_voidable : bool = check_voidable_tile(pos, tilemap_layer)
@@ -34,7 +29,10 @@ func delete_all_voidable_tiles(pos: Vector2):
 			#tilemap_layer.set_cells_terrain_connect([adjacent_tiles.get(2)], 0, 0, true)
 			#tilemap_layer.set_cell(map_pos)
 			tile_eaten.emit()
-
+			if randi() % 2 == 0:
+				MusicManager.play_sound("res://assets/audio/boom1.wav")
+			else: 
+				MusicManager.play_sound("res://assets/audio/boom2.wav")
 			# Only the highest layer can be eaten at a time
 			break
 

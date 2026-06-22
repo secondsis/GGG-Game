@@ -3,9 +3,8 @@ extends Node
 signal game_start
 signal void_player_turn(is_turn: bool)
 signal gubby_player_turn(is_turn: bool)
-signal game_lost
 
-var amount_eat_left : int = 1
+var amount_eat_left : int
 var next_level
 
 # Called when the node enters the scene tree for the first time.
@@ -14,14 +13,16 @@ func _ready() -> void:
 	gubby_player_turn.emit(false)
 	game_start.emit()
 	MusicManager.play_music(GameInfo.get_level_info()["music"])
-	
+	amount_eat_left = GameInfo.get_level_info()["void_turns"]
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("redo_level"):
 		redo()
 
 func redo():
-	get_tree().change_scene_to_packed(GameInfo.get_level_info()["scene"])
+	pass
+	get_tree().change_scene_to_packed(load(GameInfo.get_level_info()["scene"]))
 
 func _on_continue() -> void:
 	print("CONTINUE")
@@ -32,7 +33,7 @@ func _on_continue() -> void:
 func _on_transition_finished():
 	if next_level != null:
 		GameInfo.increase_level()
-		get_tree().change_scene_to_packed(next_level)
+		get_tree().change_scene_to_packed(load(next_level))
 
 
 func check_eaten_all():
@@ -55,7 +56,7 @@ func _on_game_win() -> void:
 
 func _on_game_lost() -> void:
 	print("game lost!")
-
+	redo()
 
 func _on_void_script_tile_eaten() -> void:
 	amount_eat_left -= 1

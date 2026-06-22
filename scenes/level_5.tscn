@@ -1,26 +1,26 @@
-[gd_scene format=4 uid="uid://eyi6wiaaph4n"]
+[gd_scene format=4 uid="uid://cg2t2kj2r1f3s"]
 
-[ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="1_2aecg"]
-[ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="2_6dial"]
-[ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="3_7nomh"]
-[ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="4_1s4pk"]
-[ext_resource type="Texture2D" uid="uid://cicfblsq0817o" path="res://assets/VoidIsYou_WALLSAGAIN.png" id="5_6dial"]
-[ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="5_x2xxo"]
-[ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="6_2cbcq"]
-[ext_resource type="PackedScene" uid="uid://du57tm7m78061" path="res://scenes/player.tscn" id="7_isj1j"]
-[ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="8_so66j"]
-[ext_resource type="AudioStream" uid="uid://d3vjsnd8gu38n" path="res://assets/audio/shadowDie.wav" id="9_1s4pk"]
-[ext_resource type="Script" uid="uid://cmlqw1oc8622m" path="res://scripts/void_player.gd" id="9_tr1x6"]
-[ext_resource type="Script" uid="uid://drkbtw8wkxae7" path="res://scripts/gubby_player.gd" id="10_d5akn"]
-[ext_resource type="Script" uid="uid://ch8cuhd8ieuuh" path="res://scripts/carrot_animate.gd" id="11_wbtxt"]
-[ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="12_2cbcq"]
-[ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="12_x2fux"]
-[ext_resource type="AudioStream" uid="uid://qsegnlfux8me" path="res://assets/audio/gubby.mp3" id="12_x2xxo"]
-[ext_resource type="Script" uid="uid://bfnyx3e1jf4qx" path="res://scripts/control_transition.gd" id="13_s7g0b"]
-[ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://assets/circle_wipe.gdshader" id="14_mmfjm"]
+[ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="1_csif5"]
+[ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="2_vds1t"]
+[ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="3_5bvhu"]
+[ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="4_ishhe"]
+[ext_resource type="Texture2D" uid="uid://cicfblsq0817o" path="res://assets/VoidIsYou_WALLSAGAIN.png" id="5_gnwwf"]
+[ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="6_vorqn"]
+[ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="7_5kbkd"]
+[ext_resource type="PackedScene" uid="uid://du57tm7m78061" path="res://scenes/player.tscn" id="8_u1mn7"]
+[ext_resource type="AudioStream" uid="uid://d3vjsnd8gu38n" path="res://assets/audio/shadowDie.wav" id="9_cijsf"]
+[ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="10_mnrma"]
+[ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="11_j5pwc"]
+[ext_resource type="Script" uid="uid://cmlqw1oc8622m" path="res://scripts/void_player.gd" id="12_nrec3"]
+[ext_resource type="AudioStream" uid="uid://qsegnlfux8me" path="res://assets/audio/gubby.mp3" id="13_u88kh"]
+[ext_resource type="Script" uid="uid://drkbtw8wkxae7" path="res://scripts/gubby_player.gd" id="14_jrosa"]
+[ext_resource type="Script" uid="uid://ch8cuhd8ieuuh" path="res://scripts/carrot_animate.gd" id="15_sbc0t"]
+[ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="16_wgn3r"]
+[ext_resource type="Script" uid="uid://bfnyx3e1jf4qx" path="res://scripts/control_transition.gd" id="17_p5exd"]
+[ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://assets/circle_wipe.gdshader" id="18_uucwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kiw3p"]
-texture = ExtResource("3_7nomh")
+texture = ExtResource("2_vds1t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -75,7 +75,7 @@ texture = ExtResource("3_7nomh")
 2:3/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_400sg"]
-texture = ExtResource("4_1s4pk")
+texture = ExtResource("3_5bvhu")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -90,7 +90,7 @@ texture = ExtResource("4_1s4pk")
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g4kob"]
-texture = ExtResource("5_x2xxo")
+texture = ExtResource("4_ishhe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -99,7 +99,7 @@ texture = ExtResource("5_x2xxo")
 2:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nomh"]
-texture = ExtResource("5_6dial")
+texture = ExtResource("5_gnwwf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/custom_data_0 = true
@@ -155,10 +155,10 @@ sources/3 = SubResource("TileSetAtlasSource_g4kob")
 sources/5 = SubResource("TileSetAtlasSource_7nomh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ua8r"]
-texture = ExtResource("2_6dial")
+texture = ExtResource("6_vorqn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7sob"]
-texture = ExtResource("3_7nomh")
+texture = ExtResource("2_vds1t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -207,13 +207,15 @@ texture = ExtResource("3_7nomh")
 1:3/0 = 0
 1:3/0/terrain_set = 0
 1:3/0/custom_data_0 = true
+1:3/0/custom_data_1 = true
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0/custom_data_0 = true
+2:3/0/custom_data_2 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5y3l"]
-texture = ExtResource("4_1s4pk")
+texture = ExtResource("3_5bvhu")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -228,7 +230,7 @@ texture = ExtResource("4_1s4pk")
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjgi4"]
-texture = ExtResource("5_x2xxo")
+texture = ExtResource("4_ishhe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -241,16 +243,20 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 custom_data_layer_0/name = "Voidable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Key"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "Door"
+custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_7ua8r")
 sources/1 = SubResource("TileSetAtlasSource_r7sob")
 sources/2 = SubResource("TileSetAtlasSource_y5y3l")
 sources/3 = SubResource("TileSetAtlasSource_vjgi4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy1jj"]
-texture = ExtResource("2_6dial")
+texture = ExtResource("6_vorqn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xj3m"]
-texture = ExtResource("3_7nomh")
+texture = ExtResource("2_vds1t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -305,7 +311,7 @@ texture = ExtResource("3_7nomh")
 2:3/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcffj"]
-texture = ExtResource("4_1s4pk")
+texture = ExtResource("3_5bvhu")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -320,7 +326,7 @@ texture = ExtResource("4_1s4pk")
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rd6h"]
-texture = ExtResource("5_x2xxo")
+texture = ExtResource("4_ishhe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -346,51 +352,51 @@ size = Vector2(8, 8)
 size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4kob"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy1jj"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xj3m"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcffj"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2rd6h"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ua8r"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7sob"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5y3l"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjgi4"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyk2p"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45i86"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv1m6"]
-atlas = ExtResource("4_1s4pk")
+atlas = ExtResource("3_5bvhu")
 region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8wo8"]
@@ -443,10 +449,10 @@ size = Vector2(8, 8)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcffj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rd6h"]
-texture = ExtResource("12_x2fux")
+texture = ExtResource("16_wgn3r")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ua8r"]
-shader = ExtResource("14_mmfjm")
+shader = ExtResource("18_uucwl")
 shader_parameter/screen_size = Vector2(1920, 1080)
 shader_parameter/center = Vector2(0, 0)
 shader_parameter/radius = 1.15600005491
@@ -459,17 +465,18 @@ bg_color = Color(0.14733289, 0.050708726, 0.20285092, 1)
 
 [node name="GameScript" type="Node2D" parent="." unique_id=716269097]
 unique_name_in_owner = true
-script = ExtResource("1_2aecg")
+script = ExtResource("1_csif5")
 
 [node name="TileMap" type="Node2D" parent="." unique_id=834992288]
 
 [node name="TileMap_Wall" type="TileMapLayer" parent="TileMap" unique_id=42786515]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAAJAAgABQADAAIAAAAJAAEABQADAAEAAAAJAAcABQADAAIAAAAJAAYABQADAAIAAAAJAAUABQADAAIAAAAJAAQABQADAAIAAAAJAAMABQADAAIAAAAJAAIABQADAAIAAAAJAAkABQADAAMAAAA=")
+tile_map_data = PackedByteArray("AAADAAMABQACAAAAAAACAAMABQACAAAAAAABAAMABQABAAAAAAABAAUABQABAAAAAAACAAUABQACAAAAAAADAAUABQACAAAAAAADAAQABQACAAAAAAABAAQABQABAAAAAAAEAAQABQACAAAAAAAFAAQABQACAAAAAAAGAAQABQACAAAAAAAHAAQABQACAAAAAAAIAAQABQACAAAAAAAJAAQABQACAAAAAAAKAAQABQACAAAAAAALAAQABQACAAAAAAAMAAQABQACAAAAAAANAAQABQACAAAAAAAOAAQABQACAAAAAAAPAAQABQACAAAAAAAPAAMABQACAAAAAAAQAAMABQACAAAAAAAQAAQABQADAAAAAAARAAMABQACAAAAAAASAAMABQADAAAAAAASAAQABQADAAAAAAASAAUABQADAAAAAAAEAAUABQADAAAAAAAEAAYABQACAAAAAAAFAAYABQACAAAAAAAGAAYABQACAAAAAAAHAAYABQACAAAAAAAIAAYABQACAAAAAAAJAAYABQACAAAAAAAKAAYABQACAAAAAAALAAYABQACAAAAAAAMAAYABQACAAAAAAANAAYABQACAAAAAAAOAAYABQACAAAAAAAPAAYABQACAAAAAAAQAAYABQACAAAAAAARAAYABQACAAAAAAASAAYABQADAAAAAAADAAYABQACAAAAAAACAAYABQACAAAAAAABAAYABQABAAAAAAAEAAMABQACAAAAAAAFAAMABQACAAAAAAAGAAMABQACAAAAAAAHAAMABQACAAAAAAAIAAMABQACAAAAAAAJAAMABQACAAAAAAAKAAMABQACAAAAAAALAAMABQACAAAAAAAMAAMABQACAAAAAAANAAMABQACAAAAAAAOAAMABQACAAAAAAABAAcABQABAAAAAAACAAcABQACAAAAAAADAAcABQACAAAAAAAEAAcABQACAAAAAAAFAAcABQACAAAAAAAGAAcABQACAAAAAAAHAAcABQACAAAAAAAIAAcABQACAAAAAAAJAAcABQACAAAAAAAKAAcABQACAAAAAAALAAcABQACAAAAAAAMAAcABQACAAAAAAANAAcABQACAAAAAAAOAAcABQACAAAAAAAPAAcABQACAAAAAAAQAAcABQACAAAAAAARAAcABQACAAAAAAASAAcABQADAAAAAAASAAgABQADAAAAAAARAAgABQACAAAAAAAQAAgABQACAAAAAAAPAAgABQACAAAAAAAOAAgABQACAAAAAAANAAgABQACAAAAAAAMAAgABQACAAAAAAALAAgABQACAAAAAAAKAAgABQACAAAAAAAJAAgABQACAAAAAAAIAAgABQACAAAAAAAHAAgABQACAAAAAAAGAAgABQACAAAAAAAFAAgABQACAAAAAAAEAAgABQACAAAAAAADAAgABQACAAAAAAACAAgABQACAAAAAAABAAgABQABAAAAAAABAAkABQABAAAAAAACAAkABQACAAAAAAADAAkABQACAAAAAAAEAAkABQACAAAAAAAFAAkABQACAAAAAAAGAAkABQACAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAAJAAkABQACAAAAAAAKAAkABQACAAAAAAALAAkABQACAAAAAAAMAAkABQACAAAAAAANAAkABQACAAAAAAAOAAkABQACAAAAAAAPAAkABQACAAAAAAAQAAkABQACAAAAAAARAAkABQACAAAAAAASAAkABQADAAAAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
 [node name="TileMap_InteractiveNoCollide" type="TileMapLayer" parent="TileMap" unique_id=2060783861]
 position = Vector2(-8, -8)
+tile_map_data = PackedByteArray("AAANAAUAAQABAAMAAAA=")
 tile_set = SubResource("TileSet_kyk2p")
 
 [node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
@@ -480,19 +487,16 @@ tile_set = SubResource("TileSet_7ua8r")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1630962023]
 position = Vector2(160, 80)
 zoom = Vector2(2, 2)
-script = ExtResource("6_2cbcq")
+script = ExtResource("7_5kbkd")
 
-[node name="VoidPlayer" parent="." unique_id=925719812 groups=["death", "void"] instance=ExtResource("7_isj1j")]
+[node name="VoidPlayer" parent="." unique_id=925719812 groups=["death", "void"] instance=ExtResource("8_u1mn7")]
 position = Vector2(80, 80)
 collision_layer = 2
 collision_mask = 2
-movement_sfx = ExtResource("9_1s4pk")
+movement_sfx = ExtResource("9_cijsf")
 
-[node name="VoidScript" type="Node2D" parent="VoidPlayer" unique_id=1800358643]
-script = ExtResource("9_tr1x6")
-
-[node name="AnimatedSprite2D" parent="VoidPlayer" index="1" unique_id=149505355]
-sprite_frames = ExtResource("8_so66j")
+[node name="AnimatedSprite2D" parent="VoidPlayer" index="0" unique_id=149505355]
+sprite_frames = ExtResource("10_mnrma")
 animation = &"idle_down"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VoidPlayer/AnimatedSprite2D" index="0" unique_id=1978089199]
@@ -502,39 +506,42 @@ offset_right = 936.0
 offset_bottom = 300.0
 scale = Vector2(0.05, 0.05)
 theme_override_colors/default_color = Color(1, 1, 1, 0.757)
-theme_override_fonts/normal_font = ExtResource("12_2cbcq")
+theme_override_fonts/normal_font = ExtResource("11_j5pwc")
 theme_override_font_sizes/normal_font_size = 160
 text = "x1"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="up" parent="VoidPlayer" index="3" unique_id=1010879642]
+[node name="up" parent="VoidPlayer" index="2" unique_id=1010879642]
 collision_mask = 2
 
-[node name="down" parent="VoidPlayer" index="4" unique_id=972570611]
+[node name="down" parent="VoidPlayer" index="3" unique_id=972570611]
 collision_mask = 2
 
-[node name="left" parent="VoidPlayer" index="5" unique_id=780420478]
+[node name="left" parent="VoidPlayer" index="4" unique_id=780420478]
 collision_mask = 2
 
-[node name="right" parent="VoidPlayer" index="6" unique_id=2101515432]
+[node name="right" parent="VoidPlayer" index="5" unique_id=2101515432]
 collision_mask = 2
+
+[node name="VoidScript" type="Node2D" parent="VoidPlayer" unique_id=1800358643]
+script = ExtResource("12_nrec3")
 
 [node name="Area2D" type="Area2D" parent="VoidPlayer" unique_id=96411581]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidPlayer/Area2D" unique_id=938136615]
 shape = SubResource("RectangleShape2D_s0nni")
 
-[node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("7_isj1j")]
-position = Vector2(16, 64)
-movement_sfx = ExtResource("12_x2xxo")
+[node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("8_u1mn7")]
+position = Vector2(32, 64)
+movement_sfx = ExtResource("13_u88kh")
+
+[node name="AnimatedSprite2D" parent="GubbyPlayer" index="0" unique_id=149505355]
+flip_h = true
 
 [node name="GubbyScript" type="Node2D" parent="GubbyPlayer" unique_id=724199216]
-script = ExtResource("10_d5akn")
-
-[node name="AnimatedSprite2D" parent="GubbyPlayer" index="1" unique_id=149505355]
-flip_h = true
+script = ExtResource("14_jrosa")
 
 [node name="Area2D" type="Area2D" parent="GubbyPlayer" unique_id=770260054]
 
@@ -547,7 +554,7 @@ position = Vector2(272, 64)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrot" unique_id=1130577889]
 sprite_frames = SubResource("SpriteFrames_a8wo8")
 frame_progress = 0.56525916
-script = ExtResource("11_wbtxt")
+script = ExtResource("15_sbc0t")
 
 [node name="Area2D" type="Area2D" parent="Carrot" unique_id=1147011417]
 
@@ -608,7 +615,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-script = ExtResource("13_s7g0b")
+script = ExtResource("17_p5exd")
 
 [node name="CenterTransition" type="CenterContainer" parent="CanvasLayer/Transition" unique_id=363247075]
 layout_mode = 0

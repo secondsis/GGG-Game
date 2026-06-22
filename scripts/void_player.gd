@@ -8,6 +8,7 @@ signal tile_eaten
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(%GameScript.get_script())
 	var tilemap_children = tilemap_parent.get_children()
 	
 	for tilemap in tilemap_children:
@@ -15,6 +16,9 @@ func _ready() -> void:
 			tilemap_layers.append(tilemap)
 	
 	tilemap_layers.reverse()
+	await get_tree().process_frame
+	var label : RichTextLabel = get_parent().find_child("AnimatedSprite2D").find_child("RichTextLabel")
+	label.text = "x" + str(%GameScript.amount_eat_left)
 
 func delete_all_voidable_tiles(pos: Vector2):
 	for tilemap_layer in tilemap_layers:
@@ -48,3 +52,5 @@ func check_voidable_tile(pos: Vector2, tilemap_layer: TileMapLayer) -> bool:
 
 func _on_void_player_after_player_move() -> void:
 	delete_all_voidable_tiles(self.global_position)
+	var label : RichTextLabel = get_parent().find_child("AnimatedSprite2D").find_child("RichTextLabel")
+	label.text = "x" + str(%GameScript.amount_eat_left)

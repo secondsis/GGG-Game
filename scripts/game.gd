@@ -63,8 +63,10 @@ func _on_game_lost() -> void:
 	print("game lost!")
 	redo()
 
-func _on_void_script_tile_eaten() -> void:
+func _on_void_script_tile_eaten(is_ghost) -> void:
 	amount_eat_left -= 1
+	if is_ghost:
+		amount_eat_left -= 1
 	check_eaten_all()
 
 

@@ -3,7 +3,7 @@ extends Node
 const TILE_SIZE = 16
 const GAME_VERSION = "0.0.0"
 
-var current_level = 5
+var current_level = 11
 #var stars_collected = 0
 
 const level_info = [
@@ -56,10 +56,22 @@ const level_info = [
 		"music": "res://assets/audio/future_paths.mp3"
 	},
 	{ # Level 9
-		"scene": "res://scenes/level_8.tscn",
+		"scene": "res://scenes/level_9.tscn",
 		"void_turns": 2,
 		"scene_size": Vector2(32, 18),
 		"music": "res://assets/audio/future_paths.mp3"
+	},
+	{ # Level 10
+		"scene": "res://scenes/level_10.tscn",
+		"void_turns": 5,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/8_bit_sunrise.mp3"
+	},
+	{ # Level 11
+		"scene": "res://scenes/level_11.tscn",
+		"void_turns": 999,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/flurries.mp3"
 	},
 ]
 
@@ -101,7 +113,9 @@ func check_surrounding_tiles_with_tag(pos: Vector2, tag: String, deleteAfter := 
 
 func check_tiles_with_tag(pos: Vector2, tag: String) -> bool:
 	var tilemap_parent : Node2D = get_node("/root/Main/TileMap")
-
+	
+	if not tilemap_parent:
+		return false
 	var tilemap_children = tilemap_parent.get_children()
 	var tilemap_layers = []
 	

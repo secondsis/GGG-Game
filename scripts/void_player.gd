@@ -23,6 +23,7 @@ func _ready() -> void:
 func delete_all_voidable_tiles(pos: Vector2):
 	for tilemap_layer in tilemap_layers:
 		var is_voidable : bool = check_voidable_tile(pos, tilemap_layer)
+		var is_ghost : bool = GameInfo.check_tiles_with_tag(pos, "Ghost")
 		if is_voidable:
 			var map_pos = tilemap_layer.local_to_map(pos)
 			#var adjacent_tiles = tilemap_layer.get_surrounding_cells(map_pos)
@@ -32,12 +33,12 @@ func delete_all_voidable_tiles(pos: Vector2):
 # oh ymy hod
 			#tilemap_layer.set_cells_terrain_connect([adjacent_tiles.get(2)], 0, 0, true)
 			#tilemap_layer.set_cell(map_pos)
-			eat_tile_effects()
+			eat_tile_effects(is_ghost)
 			# Only the highest layer can be eaten at a time
 			break
 
-func eat_tile_effects():
-	tile_eaten.emit()
+func eat_tile_effects(is_ghost: bool):
+	tile_eaten.emit(is_ghost)
 	if randi() % 2 == 0:
 		MusicManager.play_sound("res://assets/audio/boom1.wav")
 	else: 
@@ -66,7 +67,7 @@ func _on_void_player_after_player_move() -> void:
 			if overlap.get_parent().is_in_group("block"):
 				overlap.get_parent().queue_free()
 				deleted_block = true
-				eat_tile_effects()
+				eat_tile_effects(false)
 				break
 			
 	

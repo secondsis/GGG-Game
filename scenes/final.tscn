@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://byrijt1ekmc54"]
+
+[ext_resource type="VideoStream" uid="uid://co6gvwks05i75" path="res://assets/Gubby spin.ogv" id="1_4pp6u"]
+[ext_resource type="AudioStream" uid="uid://8ll1ncgb8h0q" path="res://assets/Zucchininew.mp3" id="2_qkvop"]
+
+[node name="Final" type="Node2D" unique_id=1863131041]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1805929003]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=116154160]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/CenterContainer" unique_id=1388395571]
+layout_mode = 2
+audio_track = 1
+stream = ExtResource("1_4pp6u")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=334517306]
+offset_top = -200.0
+offset_right = 1920.0
+offset_bottom = 880.0
+theme_override_font_sizes/normal_font_size = 64
+text = "THE VOID GOD BANISHED GUBBY TO ETERNAL BRAINROT."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=348885981]
+offset_top = 200.0
+offset_right = 1920.0
+offset_bottom = 1280.0
+theme_override_font_sizes/normal_font_size = 64
+text = "(you can leave now)"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1765517006]
+stream = ExtResource("2_qkvop")
+autoplay = true

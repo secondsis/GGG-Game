@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://l4ycd4uwo3ny"]
+
+[ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="1_vp3vy"]
+
+[node name="RestartHint" type="Control" unique_id=967000266]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2074656201]
+layout_mode = 0
+offset_right = 199.0
+offset_bottom = 46.0
+theme_override_fonts/normal_font = ExtResource("1_vp3vy")
+theme_override_font_sizes/normal_font_size = 32
+text = "R to restart"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

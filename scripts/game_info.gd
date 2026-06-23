@@ -3,7 +3,7 @@ extends Node
 const TILE_SIZE = 16
 const GAME_VERSION = "0.0.0"
 
-var current_level = 1
+var current_level = 5
 #var stars_collected = 0
 
 const level_info = [
@@ -33,6 +33,30 @@ const level_info = [
 	},
 	{ # Level 5
 		"scene": "res://scenes/level_5.tscn",
+		"void_turns": 1,
+		"scene_size": Vector2(32, 18),
+		"music": "res://assets/audio/future_paths.mp3"
+	},
+	{ # Level 6
+		"scene": "res://scenes/level_6.tscn",
+		"void_turns": 1,
+		"scene_size": Vector2(32, 18),
+		"music": "res://assets/audio/future_paths.mp3"
+	},
+	{ # Level 7
+		"scene": "res://scenes/level_7.tscn",
+		"void_turns": 1,
+		"scene_size": Vector2(32, 18),
+		"music": "res://assets/audio/future_paths.mp3"
+	},
+	{ # Level 8
+		"scene": "res://scenes/level_8.tscn",
+		"void_turns": 2,
+		"scene_size": Vector2(32, 18),
+		"music": "res://assets/audio/future_paths.mp3"
+	},
+	{ # Level 9
+		"scene": "res://scenes/level_8.tscn",
 		"void_turns": 2,
 		"scene_size": Vector2(32, 18),
 		"music": "res://assets/audio/future_paths.mp3"

@@ -14,10 +14,11 @@
 [ext_resource type="Script" uid="uid://drkbtw8wkxae7" path="res://scripts/gubby_player.gd" id="10_d5akn"]
 [ext_resource type="Script" uid="uid://ch8cuhd8ieuuh" path="res://scripts/carrot_animate.gd" id="11_wbtxt"]
 [ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="12_2cbcq"]
-[ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="12_x2fux"]
+[ext_resource type="PackedScene" uid="uid://dcis8gdy8w1" path="res://scenes/win_screen.tscn" id="12_isj1j"]
 [ext_resource type="AudioStream" uid="uid://qsegnlfux8me" path="res://assets/audio/gubby.mp3" id="12_x2xxo"]
 [ext_resource type="Script" uid="uid://bfnyx3e1jf4qx" path="res://scripts/control_transition.gd" id="13_s7g0b"]
 [ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://assets/circle_wipe.gdshader" id="14_mmfjm"]
+[ext_resource type="PackedScene" uid="uid://l4ycd4uwo3ny" path="res://scenes/restart_hint.tscn" id="15_2cbcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0nni"]
 size = Vector2(8, 8)
@@ -119,18 +120,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attvq"]
 size = Vector2(8, 8)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2xxo"]
-bg_color = Color(0.52912915, 0.15594886, 0.41551143, 0.58000004)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcffj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rd6h"]
-texture = ExtResource("12_x2fux")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ua8r"]
 shader = ExtResource("14_mmfjm")
@@ -559,55 +548,7 @@ shape = SubResource("RectangleShape2D_attvq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337848096]
 
-[node name="WinScreen" type="Control" parent="CanvasLayer" unique_id=356579037]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 144.0
-offset_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Background" type="CenterContainer" parent="CanvasLayer/WinScreen" unique_id=1962637015]
-layout_mode = 0
-offset_top = 50.0
-offset_right = 1920.0
-offset_bottom = 1130.0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/WinScreen/Background" unique_id=2062484386]
-custom_minimum_size = Vector2(500, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x2xxo")
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/WinScreen" unique_id=709305074]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_mcffj")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/WinScreen/PanelContainer" unique_id=248455432]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("12_2cbcq")
-theme_override_font_sizes/normal_font_size = 64
-text = "You won!"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ContinueContainer" type="CenterContainer" parent="CanvasLayer/WinScreen" unique_id=1522241598]
-layout_mode = 0
-offset_top = 100.0
-offset_right = 1920.0
-offset_bottom = 1180.0
-
-[node name="ContinueButton" type="Button" parent="CanvasLayer/WinScreen/ContinueContainer" unique_id=7417705]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("12_2cbcq")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_2rd6h")
-text = "CONTINUE"
+[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("12_isj1j")]
 
 [node name="Transition" type="Control" parent="CanvasLayer" unique_id=11810148]
 layout_mode = 3
@@ -638,6 +579,8 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
+
+[node name="RestartHint" parent="CanvasLayer" unique_id=967000266 instance=ExtResource("15_2cbcq")]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1742206230]
 
@@ -711,3 +654,4 @@ vertical_alignment = 1
 
 [editable path="VoidPlayer"]
 [editable path="GubbyPlayer"]
+[editable path="CanvasLayer/WinScreen"]

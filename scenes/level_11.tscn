@@ -280,13 +280,15 @@ offset_right = 1360.0
 offset_bottom = 200.0
 theme_override_fonts/normal_font = ExtResource("13_xxxg0")
 theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
 text = "The Void must devour"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EndScript" type="Node2D" parent="." unique_id=249217214]
+[node name="EndScript" type="Node2D" parent="." unique_id=249217214 node_paths=PackedStringArray("label")]
 script = ExtResource("15_hytav")
+label = NodePath("../CanvasLayer/RichTextLabel")
 
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]

@@ -3,7 +3,7 @@ extends Node
 const TILE_SIZE = 16
 const GAME_VERSION = "0.0.0"
 
-var current_level = 11
+var current_level = 1
 #var stars_collected = 0
 
 const level_info = [
@@ -39,7 +39,7 @@ const level_info = [
 	},
 	{ # Level 6
 		"scene": "res://scenes/level_6.tscn",
-		"void_turns": 1,
+		"void_turns": 3,
 		"scene_size": Vector2(32, 18),
 		"music": "res://assets/audio/future_paths.mp3"
 	},
@@ -151,5 +151,8 @@ func check_tile_tag(pos: Vector2i, tag: String, tilemap_layer):
 	
 	if cell_data == null:
 		return false
+	var has_tag = cell_data.get_custom_data(tag)
+	if has_tag == null:
+		return false
 	
-	return cell_data.get_custom_data(tag) == true
+	return has_tag

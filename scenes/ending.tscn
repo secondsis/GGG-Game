@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t4wwdbmhcyn6"]
 
-[ext_resource type="VideoStream" uid="uid://co6gvwks05i75" path="res://assets/Gubby spin.ogv" id="1_mqjok"]
+[ext_resource type="VideoStream" uid="uid://drhsc1uyvejpo" path="res://assets/gubby_lives.ogv" id="1_fyrdv"]
 [ext_resource type="Script" uid="uid://dfe5lqrqpmpi8" path="res://scripts/ending_ending_script.gd" id="2_fyrdv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqjok"]
@@ -26,8 +26,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-audio_track = 1
-stream = ExtResource("1_mqjok")
+stream = ExtResource("1_fyrdv")
 expand = true
 
 [node name="Script" type="Node2D" parent="." unique_id=2014767209]

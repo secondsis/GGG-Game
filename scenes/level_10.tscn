@@ -158,6 +158,12 @@ terrain_set_0/terrain_1/name = "WALL_VERTICAL"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 custom_data_layer_0/name = "Voidable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Ghost"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "Door"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "Key"
+custom_data_layer_3/type = 1
 sources/1 = SubResource("TileSetAtlasSource_kiw3p")
 sources/2 = SubResource("TileSetAtlasSource_400sg")
 sources/3 = SubResource("TileSetAtlasSource_g4kob")
@@ -362,6 +368,12 @@ physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 0
 custom_data_layer_0/name = "Voidable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Ghost"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "Door"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "Key"
+custom_data_layer_3/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qy1jj")
 sources/1 = SubResource("TileSetAtlasSource_3xj3m")
 sources/2 = SubResource("TileSetAtlasSource_mcffj")
@@ -491,12 +503,11 @@ script = ExtResource("1_7o6cb")
 
 [node name="TileMap_Wall" type="TileMapLayer" parent="TileMap" unique_id=42786515]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEABQABAAAAAAACAAEABQACAAAAAAADAAEABQACAAAAAAAEAAEABQACAAAAAAAFAAEABQACAAAAAAAGAAEABQACAAAAAAAHAAEABQACAAAAAAAIAAEABQACAAAAAAAJAAEABQADAAAAAAABAAIABQADAAIAAAABAAMABQADAAIAAAABAAQABQADAAIAAAABAAUABQADAAIAAAABAAYABQADAAIAAAABAAcABQADAAIAAAABAAgABQADAAMAAAABAAkABQABAAAAAAAJAAcABQADAAIAAAAJAAgABQADAAMAAAAJAAYABQADAAIAAAAJAAkABQADAAAAAAAJAAUABQADAAIAAAAJAAQABQADAAIAAAAJAAMABQADAAIAAAAJAAIABQADAAEAAAACAAkABQACAAAAAAADAAkABQACAAAAAAAEAAkABQACAAAAAAAFAAkABQACAAAAAAAGAAkABQACAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
 [node name="TileMap_InteractiveNoCollide" type="TileMapLayer" parent="TileMap" unique_id=2060783861]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAADAAQABQAAAAAAAAAEAAQABQAAAAAAAAAFAAQABQAAAAAAAAAGAAQABQAAAAAAAAAHAAQABQAAAAAAAAAGAAcAAQABAAMAAAAGAAgAAQABAAMAAAAHAAgAAQABAAMAAAAHAAcAAQABAAMAAAAIAAcAAQACAAMAAAAIAAgAAQACAAMAAAAJAAgAAQACAAMAAAAJAAcAAQACAAMAAAA=")
 tile_set = SubResource("TileSet_kyk2p")
 
 [node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
@@ -692,9 +703,9 @@ position = Vector2(64, 96)
 [connection signal="after_player_move" from="VoidPlayer" to="VoidPlayer/VoidScript" method="_on_void_player_after_player_move"]
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="GameScript" method="_on_void_script_tile_eaten"]
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="Camera2D" method="toggle_camera_shake"]
+[connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_grab_key"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_unlock_door"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_ghost_and_die"]
-[connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_grab_key"]
 [connection signal="game_lost" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_lost"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_win"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="VoidPlayer" method="_on_game_win"]

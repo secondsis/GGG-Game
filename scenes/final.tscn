@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byrijt1ekmc54"]
 
 [ext_resource type="VideoStream" uid="uid://co6gvwks05i75" path="res://assets/Gubby spin.ogv" id="1_4pp6u"]
-[ext_resource type="AudioStream" uid="uid://8ll1ncgb8h0q" path="res://assets/Zucchininew.mp3" id="2_qkvop"]
+[ext_resource type="AudioStream" uid="uid://8ll1ncgb8h0q" path="res://assets/audio/finale-goof.mp3" id="2_qkvop"]
 
 [node name="Final" type="Node2D" unique_id=1863131041]
 

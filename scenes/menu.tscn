@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://dmu4oplsaxi4"]
+
+[ext_resource type="Texture2D" uid="uid://c76tl2s70j7ma" path="res://assets/VoidIsYou_Planks.png" id="1_v86rl"]
+[ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://b0vnr3g2bibym" path="res://assets/green-button.png" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://caw34ccmxnoxg" path="res://assets/VoidIsYou_Ghost.png" id="3_con2f"]
+[ext_resource type="Script" uid="uid://h2e3wy27hr33" path="res://scripts/menu_animation_controller.gd" id="3_g3eks"]
+[ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="5_g3eks"]
+[ext_resource type="Script" uid="uid://c0561bxonod43" path="res://scripts/menu_transition.gd" id="8_13sgg"]
+[ext_resource type="AudioStream" uid="uid://78vv6l8dekpy" path="res://assets/audio/menu_music.mp3" id="9_i6lef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h3mk"]
+bg_color = Color(1, 0.26576185, 0.60816586, 0.19800001)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v86rl"]
+texture = ExtResource("2_4ytvr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_con2f"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhnvy"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ytvr"]
+atlas = ExtResource("2_vjb58")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3eks"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_con2f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhnvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ytvr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3eks"]
+atlas = ExtResource("3_con2f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v86rl"]
+atlas = ExtResource("3_con2f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13sgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3eks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v86rl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13sgg"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6lef"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70i5f"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj5lg"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufwb2"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdou"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i42df"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jp70"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgkd"]
+atlas = ExtResource("5_g3eks")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6gyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13sgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6lef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70i5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufwb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i42df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jp70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgkd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6lef"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Node2D" unique_id=660132500]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1462986068]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=567971336]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1491798924]
+position = Vector2(224, 1124)
+scale = Vector2(40.5, 46.500004)
+texture = ExtResource("1_v86rl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=838151687]
+position = Vector2(879.99994, 1124)
+scale = Vector2(40.5, 46.500004)
+texture = ExtResource("1_v86rl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1969406803]
+position = Vector2(1536, 1124)
+scale = Vector2(40.5, 46.500004)
+texture = ExtResource("1_v86rl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1202061343]
+position = Vector2(2192, 1124)
+scale = Vector2(40.5, 46.500004)
+texture = ExtResource("1_v86rl")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=187323381]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1177771111]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4h3mk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control" unique_id=105882023]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 336.0
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[wave]YOU ARE VOIDBOUND[/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1247184696]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 864.0
+offset_right = 1260.0
+offset_bottom = 1014.0
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_v86rl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Button" unique_id=1452033637]
+layout_mode = 0
+offset_right = 604.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[shake]ACCEPT[/shake]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationController" type="Node2D" parent="CanvasLayer" unique_id=1376214223]
+script = ExtResource("3_g3eks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/AnimationController" unique_id=1899567588]
+position = Vector2(928, 496)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_g3eks")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/AnimationController" unique_id=1446828552]
+position = Vector2(1392, 496.00003)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_13sgg")
+frame_progress = 0.46947148
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/AnimationController" unique_id=70039317]
+position = Vector2(480.00006, 512)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_g6gyw")
+frame_progress = 0.6688739
+
+[node name="BlackOverlay" type="Panel" parent="CanvasLayer" unique_id=657538266]
+modulate = Color(1, 1, 1, 0)
+offset_right = 2416.0
+offset_bottom = 1456.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6lef")
+script = ExtResource("8_13sgg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=311723797]
+stream = ExtResource("9_i6lef")
+autoplay = true
+
+[connection signal="button_up" from="CanvasLayer/Control/Button" to="CanvasLayer/BlackOverlay" method="transition"]

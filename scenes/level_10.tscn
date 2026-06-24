@@ -503,11 +503,12 @@ script = ExtResource("1_7o6cb")
 
 [node name="TileMap_Wall" type="TileMapLayer" parent="TileMap" unique_id=42786515]
 position = Vector2(-8, -8)
-tile_map_data = PackedByteArray("AAABAAEABQABAAAAAAACAAEABQACAAAAAAADAAEABQACAAAAAAAEAAEABQACAAAAAAAFAAEABQACAAAAAAAGAAEABQACAAAAAAAHAAEABQACAAAAAAAIAAEABQACAAAAAAAJAAEABQADAAAAAAABAAIABQADAAIAAAABAAMABQADAAIAAAABAAQABQADAAIAAAABAAUABQADAAIAAAABAAYABQADAAIAAAABAAcABQADAAIAAAABAAgABQADAAMAAAABAAkABQABAAAAAAAJAAcABQADAAIAAAAJAAgABQADAAMAAAAJAAYABQADAAIAAAAJAAkABQADAAAAAAAJAAUABQADAAIAAAAJAAQABQADAAIAAAAJAAMABQADAAIAAAAJAAIABQADAAEAAAACAAkABQACAAAAAAADAAkABQACAAAAAAAEAAkABQACAAAAAAAFAAkABQACAAAAAAAGAAkABQACAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEABQABAAAAAAACAAEABQACAAAAAAADAAEABQACAAAAAAAEAAEABQADAAAAAAABAAIABQADAAIAAAABAAMABQADAAIAAAABAAQABQADAAIAAAABAAUABQADAAIAAAABAAcABQADAAIAAAABAAgABQADAAMAAAABAAkABQABAAAAAAAJAAcABQADAAIAAAAJAAgABQADAAMAAAAJAAkABQADAAAAAAACAAkABQACAAAAAAADAAkABQACAAAAAAAEAAkABQACAAAAAAAFAAkABQACAAAAAAAGAAkABQACAAAAAAAHAAkABQACAAAAAAAIAAkABQACAAAAAAACAAcABQABAAAAAAAHAAcABQABAAAAAAAIAAcABQADAAAAAAAIAAUABQADAAAAAAAHAAUABQACAAAAAAAGAAUABQACAAAAAAAFAAUABQACAAAAAAAEAAUABQACAAAAAAADAAUABQACAAAAAAACAAUABQABAAAAAAACAAMABQABAAAAAAADAAMABQACAAAAAAAEAAMABQACAAAAAAAFAAMABQACAAAAAAAGAAMABQACAAAAAAAHAAMABQACAAAAAAABAAYABQADAAIAAAAJAAYABQADAAEAAAACAAYABQADAAIAAAAIAAYABQADAAIAAAADAAcABQADAAAAAAA=")
 tile_set = SubResource("TileSet_cpr0p")
 
 [node name="TileMap_InteractiveNoCollide" type="TileMapLayer" parent="TileMap" unique_id=2060783861]
 position = Vector2(-8, -8)
+tile_map_data = PackedByteArray("AAADAAYAAQABAAMAAAAEAAYAAQABAAMAAAAFAAYAAQABAAMAAAAGAAYAAQABAAMAAAAHAAYABQAAAAAAAAAFAAEAAQACAAMAAAAGAAEAAQACAAMAAAAHAAEAAQACAAMAAAAIAAEAAQACAAMAAAAJAAIAAQACAAMAAAAJAAMAAQACAAMAAAAJAAQAAQACAAMAAAAJAAUAAQACAAMAAAAIAAIAAQACAAMAAAAHAAIAAQACAAMAAAAIAAMAAQACAAMAAAA=")
 tile_set = SubResource("TileSet_kyk2p")
 
 [node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
@@ -560,14 +561,14 @@ collision_mask = 2
 script = ExtResource("14_faxsk")
 
 [node name="Area2D" type="Area2D" parent="VoidPlayer" unique_id=96411581]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidPlayer/Area2D" unique_id=938136615]
 shape = SubResource("RectangleShape2D_s0nni")
 
 [node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("10_3y5qg")]
-position = Vector2(16, 144)
+position = Vector2(32, 128)
 movement_sfx = ExtResource("15_du644")
 is_gubby = true
 
@@ -615,7 +616,7 @@ script = ExtResource("16_l6je1")
 shape = SubResource("RectangleShape2D_qy1jj")
 
 [node name="Carrot" type="Node2D" parent="." unique_id=1216452123 groups=["carrot"]]
-position = Vector2(16, 16)
+position = Vector2(144, 16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carrot" unique_id=1130577889]
 sprite_frames = SubResource("SpriteFrames_a8wo8")
@@ -659,6 +660,10 @@ offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
 
+[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("20_cronh")]
+offset_top = -80.0
+offset_bottom = -48.0
+
 [node name="Overlay" type="Control" parent="CanvasLayer" unique_id=126482220]
 layout_mode = 3
 anchors_preset = 0
@@ -672,12 +677,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_csif5")
-
-[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("20_cronh")]
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 224.0
-offset_bottom = 112.0
 
 [node name="RestartHint" parent="CanvasLayer" unique_id=967000266 instance=ExtResource("21_6xxhf")]
 
@@ -694,8 +693,8 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PushableBlock" parent="." unique_id=2034978505 instance=ExtResource("22_ktybg")]
-position = Vector2(64, 96)
+[node name="PushableBlock2" parent="." unique_id=1460085315 instance=ExtResource("22_ktybg")]
+position = Vector2(80, 32)
 
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
 [connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]

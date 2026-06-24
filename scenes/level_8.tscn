@@ -587,8 +587,8 @@ collision_mask = 2
 script = ExtResource("15_2sc2n")
 
 [node name="Area2D" type="Area2D" parent="VoidPlayer" unique_id=96411581]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidPlayer/Area2D" unique_id=938136615]
 shape = SubResource("RectangleShape2D_s0nni")
@@ -686,6 +686,10 @@ offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
 
+[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("21_goh3h")]
+offset_top = -80.0
+offset_bottom = -48.0
+
 [node name="Overlay" type="Control" parent="CanvasLayer" unique_id=126482220]
 layout_mode = 3
 anchors_preset = 0
@@ -700,12 +704,6 @@ offset_bottom = 1080.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_csif5")
 
-[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("21_goh3h")]
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 224.0
-offset_bottom = 112.0
-
 [node name="RestartHint" parent="CanvasLayer" unique_id=967000266 instance=ExtResource("22_g6ttw")]
 
 [connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
@@ -714,9 +712,9 @@ offset_bottom = 112.0
 [connection signal="after_player_move" from="VoidPlayer" to="VoidPlayer/VoidScript" method="_on_void_player_after_player_move"]
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="GameScript" method="_on_void_script_tile_eaten"]
 [connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="Camera2D" method="toggle_camera_shake"]
+[connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_grab_key"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_unlock_door"]
 [connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_ghost_and_die"]
-[connection signal="after_player_move" from="GubbyPlayer" to="GubbyPlayer/GubbyScript" method="check_and_grab_key"]
 [connection signal="game_lost" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_lost"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_win"]
 [connection signal="game_win" from="GubbyPlayer/GubbyScript" to="VoidPlayer" method="_on_game_win"]

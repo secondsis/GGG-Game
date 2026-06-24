@@ -549,6 +549,8 @@ shape = SubResource("RectangleShape2D_attvq")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337848096]
 
 [node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("12_isj1j")]
+offset_top = -80.0
+offset_bottom = -48.0
 
 [node name="Transition" type="Control" parent="CanvasLayer" unique_id=11810148]
 layout_mode = 3

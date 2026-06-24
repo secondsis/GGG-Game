@@ -1,0 +1,310 @@
+[gd_scene format=4 uid="uid://17j01jymr1mh"]
+
+[ext_resource type="Script" uid="uid://dky8xy86dnv8i" path="res://scripts/game.gd" id="1_y36u2"]
+[ext_resource type="Texture2D" uid="uid://830hqc2gtp20" path="res://assets/VoidIsYou.png" id="3_k8idr"]
+[ext_resource type="Texture2D" uid="uid://car5bv57l056d" path="res://assets/VoidIsYou_Carrot.png" id="4_7360d"]
+[ext_resource type="Texture2D" uid="uid://hjgvpgix8p6p" path="res://assets/VoidIsYou_Gubby.png" id="5_oggk4"]
+[ext_resource type="Texture2D" uid="uid://dj1a3iurtd7yr" path="res://assets/icon.svg" id="7_e7128"]
+[ext_resource type="Script" uid="uid://b71c2f5g3fb68" path="res://scripts/camera_zoom.gd" id="9_ks4jm"]
+[ext_resource type="PackedScene" uid="uid://du57tm7m78061" path="res://scenes/player.tscn" id="10_ga27j"]
+[ext_resource type="SpriteFrames" uid="uid://u85qyehfhxwk" path="res://assets/void_sprite_frames.tres" id="12_fl50g"]
+[ext_resource type="FontFile" uid="uid://pqqa3e47gfq6" path="res://assets/ChelseaMarket-Regular.ttf" id="13_xxxg0"]
+[ext_resource type="Script" uid="uid://cmlqw1oc8622m" path="res://scripts/void_player.gd" id="14_p4xiq"]
+[ext_resource type="Script" uid="uid://c66chcd0xrt45" path="res://scripts/end_script.gd" id="15_hytav"]
+[ext_resource type="Script" uid="uid://drkbtw8wkxae7" path="res://scripts/gubby_player.gd" id="16_rbynv"]
+[ext_resource type="Script" uid="uid://bfnyx3e1jf4qx" path="res://scripts/control_transition.gd" id="18_wjk4y"]
+[ext_resource type="Shader" uid="uid://cfyxx84ix7fp3" path="res://assets/circle_wipe.gdshader" id="19_8s740"]
+[ext_resource type="PackedScene" uid="uid://dcis8gdy8w1" path="res://scenes/win_screen.tscn" id="20_wbtsy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy1jj"]
+texture = ExtResource("7_e7128")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xj3m"]
+texture = ExtResource("3_k8idr")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = true
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/custom_data_0 = true
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = true
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_0 = true
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/custom_data_0 = true
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcffj"]
+texture = ExtResource("4_7360d")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rd6h"]
+texture = ExtResource("5_oggk4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ua8r"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+terrain_set_0/mode = 0
+custom_data_layer_0/name = "Voidable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_qy1jj")
+sources/1 = SubResource("TileSetAtlasSource_3xj3m")
+sources/2 = SubResource("TileSetAtlasSource_mcffj")
+sources/3 = SubResource("TileSetAtlasSource_2rd6h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0nni"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy1jj"]
+size = Vector2(8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ua8r"]
+shader = ExtResource("19_8s740")
+shader_parameter/screen_size = Vector2(1920, 1080)
+shader_parameter/center = Vector2(0, 0)
+shader_parameter/radius = 1.15600005491
+shader_parameter/softness = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rd6h"]
+bg_color = Color(0.14733289, 0.050708726, 0.20285092, 1)
+
+[node name="Main" type="Node2D" unique_id=170183922]
+
+[node name="GameScript" type="Node2D" parent="." unique_id=716269097]
+unique_name_in_owner = true
+script = ExtResource("1_y36u2")
+
+[node name="TileMap" type="Node2D" parent="." unique_id=834992288]
+
+[node name="TileMap_Barrier" type="TileMapLayer" parent="TileMap" unique_id=2046726413]
+position = Vector2(-8, -8)
+tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAYAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAAGAAUAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7ua8r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1630962023]
+position = Vector2(160, 80)
+zoom = Vector2(2, 2)
+script = ExtResource("9_ks4jm")
+
+[node name="VoidPlayer" parent="." unique_id=925719812 groups=["death", "void"] instance=ExtResource("10_ga27j")]
+position = Vector2(80, 80)
+collision_layer = 2
+collision_mask = 2
+script = null
+
+[node name="AnimatedSprite2D" parent="VoidPlayer" index="0" unique_id=149505355]
+sprite_frames = ExtResource("12_fl50g")
+animation = &"idle_down"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VoidPlayer/AnimatedSprite2D" index="0" unique_id=1978089199]
+offset_left = -24.0
+offset_top = -20.0
+offset_right = 936.0
+offset_bottom = 300.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(1, 1, 1, 0.757)
+theme_override_fonts/normal_font = ExtResource("13_xxxg0")
+theme_override_font_sizes/normal_font_size = 160
+text = "x1"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="up" parent="VoidPlayer" index="2" unique_id=1010879642]
+collision_mask = 2
+
+[node name="down" parent="VoidPlayer" index="3" unique_id=972570611]
+collision_mask = 2
+
+[node name="left" parent="VoidPlayer" index="4" unique_id=780420478]
+collision_mask = 2
+
+[node name="right" parent="VoidPlayer" index="5" unique_id=2101515432]
+collision_mask = 2
+
+[node name="VoidScript" type="Node2D" parent="VoidPlayer" unique_id=1800358643]
+script = ExtResource("14_p4xiq")
+
+[node name="Area2D" type="Area2D" parent="VoidPlayer" unique_id=96411581]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidPlayer/Area2D" unique_id=938136615]
+shape = SubResource("RectangleShape2D_s0nni")
+
+[node name="GubbyPlayer" parent="." unique_id=1432714205 instance=ExtResource("10_ga27j")]
+position = Vector2(64, 80)
+script = null
+
+[node name="AnimatedSprite2D" parent="GubbyPlayer" index="0" unique_id=149505355]
+flip_h = true
+
+[node name="block_up" type="RayCast2D" parent="GubbyPlayer" unique_id=1969186723]
+position = Vector2(0, -8)
+target_position = Vector2(0, -16)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_down" type="RayCast2D" parent="GubbyPlayer" unique_id=707099396]
+position = Vector2(0, 8)
+target_position = Vector2(0, 16)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_left" type="RayCast2D" parent="GubbyPlayer" unique_id=636629581]
+position = Vector2(-8, 0)
+target_position = Vector2(-16, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="block_right" type="RayCast2D" parent="GubbyPlayer" unique_id=527238249]
+position = Vector2(8, 0)
+target_position = Vector2(16, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="GubbyScript" type="Node2D" parent="GubbyPlayer" unique_id=724199216]
+script = ExtResource("16_rbynv")
+
+[node name="Area2D" type="Area2D" parent="GubbyPlayer" unique_id=770260054]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GubbyPlayer/Area2D" unique_id=726222516]
+shape = SubResource("RectangleShape2D_qy1jj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337848096]
+
+[node name="Transition" type="Control" parent="CanvasLayer" unique_id=11810148]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("18_wjk4y")
+
+[node name="CenterTransition" type="CenterContainer" parent="CanvasLayer/Transition" unique_id=363247075]
+layout_mode = 0
+offset_top = -480.0
+offset_right = 1920.0
+offset_bottom = 1440.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition/CenterTransition" unique_id=1469167029]
+visible = false
+material = SubResource("ShaderMaterial_7ua8r")
+custom_minimum_size = Vector2(1920, 1920)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BlackPanel" type="Panel" parent="CanvasLayer/Transition" unique_id=2049320128]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
+
+[node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("20_wbtsy")]
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 112.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1727588210]
+offset_left = 560.0
+offset_right = 1360.0
+offset_bottom = 200.0
+theme_override_fonts/normal_font = ExtResource("13_xxxg0")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "The Void must devour"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndScript" type="Node2D" parent="." unique_id=249217214 node_paths=PackedStringArray("label")]
+script = ExtResource("15_hytav")
+label = NodePath("../CanvasLayer/RichTextLabel")
+
+[connection signal="game_start" from="GameScript" to="CanvasLayer/Transition" method="enter_transition"]
+[connection signal="gubby_player_turn" from="GameScript" to="GubbyPlayer" method="_on_switch_turns"]
+[connection signal="void_player_turn" from="GameScript" to="VoidPlayer" method="_on_switch_turns"]
+[connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="GameScript" method="_on_void_script_tile_eaten"]
+[connection signal="tile_eaten" from="VoidPlayer/VoidScript" to="Camera2D" method="toggle_camera_shake"]
+[connection signal="game_lost" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_lost"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_game_win"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="VoidPlayer" method="_on_game_win"]
+[connection signal="game_win" from="GubbyPlayer/GubbyScript" to="GubbyPlayer" method="_on_game_win"]
+[connection signal="got_key" from="GubbyPlayer/GubbyScript" to="GameScript" method="_on_gubby_script_got_key"]
+[connection signal="area_entered" from="GubbyPlayer/Area2D" to="GubbyPlayer/GubbyScript" method="_on_area_2d_area_entered"]
+[connection signal="finished_transition" from="CanvasLayer/Transition" to="GameScript" method="_on_transition_finished"]
+[connection signal="button_up" from="CanvasLayer/WinScreen/ContinueContainer/ContinueButton" to="GameScript" method="_on_continue"]
+[connection signal="button_up" from="CanvasLayer/WinScreen/ContinueContainer/ContinueButton" to="CanvasLayer/Transition" method="exit_transition"]
+
+[editable path="VoidPlayer"]
+[editable path="GubbyPlayer"]
+[editable path="CanvasLayer/WinScreen"]

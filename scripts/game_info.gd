@@ -63,12 +63,36 @@ const level_info = [
 	},
 	{ # Level 10
 		"scene": "res://scenes/level_10.tscn",
-		"void_turns": 5,
+		"void_turns": 2,
 		"scene_size": Vector2(10, 10),
 		"music": "res://assets/audio/8_bit_sunrise.mp3"
 	},
 	{ # Level 11
 		"scene": "res://scenes/level_11.tscn",
+		"void_turns": 4,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/8_bit_sunrise.mp3"
+	},
+	{ # Level 12
+		"scene": "res://scenes/level_12.tscn",
+		"void_turns": 5,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/8_bit_sunrise.mp3"
+	},
+	{ # Level 13
+		"scene": "res://scenes/level_13.tscn",
+		"void_turns": 8,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/8_bit_sunrise.mp3"
+	},
+	{ # Level 14
+		"scene": "res://scenes/level_14.tscn",
+		"void_turns": 3,
+		"scene_size": Vector2(10, 10),
+		"music": "res://assets/audio/8_bit_sunrise.mp3"
+	},
+	{ # Level 15
+		"scene": "res://scenes/level_15.tscn",
 		"void_turns": 999,
 		"scene_size": Vector2(10, 10),
 		"music": "res://assets/audio/flurries.mp3"

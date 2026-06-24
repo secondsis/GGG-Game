@@ -567,6 +567,8 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2rd6h")
 
 [node name="WinScreen" parent="CanvasLayer" unique_id=256184610 instance=ExtResource("14_7qsfm")]
+offset_top = -80.0
+offset_bottom = -48.0
 
 [node name="RestartHint" parent="CanvasLayer" unique_id=967000266 instance=ExtResource("15_bv48q")]
 

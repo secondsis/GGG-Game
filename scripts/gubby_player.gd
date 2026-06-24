@@ -13,6 +13,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		game_win.emit()
 		MusicManager.play_sound("res://assets/audio/eat.wav")
 	elif area.get_parent().is_in_group("death"):
+		print("game shoudl be lost?")
 		game_lost.emit()
 		MusicManager.play_sound("res://assets/audio/boom2.wav")
 

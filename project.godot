@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GGG-Game"
+config/name="ALL IS VOIDBOUND"
+config/description="ALL IS VOIDBOUND is a top-down tile-based puzzle game where you guide a white bunny to a carrot, using THE VOID to destroy objects in the path of the rabbit. And of course, you must accept the terms and conditions of the title. "
 run/main_scene="uid://dmu4oplsaxi4"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://assets/icon.svg"
+config/icon="uid://dvuahgl14ylca"
 
 [autoload]
 
@@ -24,8 +25,7 @@ MusicManager="*uid://bw8gkvyd0yety"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
+window/stretch/mode="canvas_items"
 
 [editor]
 
